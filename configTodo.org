@@ -3,6 +3,16 @@
 #+TODO: TODO(t) | DONE(f!)
 #+TODO: | BLOCKED(b@) WONTDO(w@)
 
+* stow
+** DONE move i3 config
+CLOSED: [2019-06-04 Tue 15:53]
+- State "DONE"       from "TODO"       [2019-06-04 Tue 15:53]
+** TODO move zsh config
+** TODO move (n)vim config
+** TODO move emacs config
+Should include emacsnotes
+** TODO move tmux config
+** TODO move scripts
 * vim
 ** TODO play around with neomake or ale instead of syntastic (may be better? IDK)
 - [[https://github.com/w0rp/ale][ale]]
