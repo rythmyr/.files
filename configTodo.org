@@ -7,7 +7,9 @@
 ** DONE move i3 config
 CLOSED: [2019-06-04 Tue 15:53]
 - State "DONE"       from "TODO"       [2019-06-04 Tue 15:53]
-** TODO move zsh config
+** DONE move zsh config
+CLOSED: [2019-06-04 Tue 15:57]
+- State "DONE"       from "TODO"       [2019-06-04 Tue 15:57]
 ** TODO move (n)vim config
 ** TODO move emacs config
 Should include emacsnotes
