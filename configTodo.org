@@ -10,11 +10,18 @@ CLOSED: [2019-06-04 Tue 15:53]
 ** DONE move zsh config
 CLOSED: [2019-06-04 Tue 15:57]
 - State "DONE"       from "TODO"       [2019-06-04 Tue 15:57]
-** TODO move (n)vim config
+** DONE move (n)vim config
+CLOSED: [2019-06-04 Tue 16:11]
+- State "DONE"       from "TODO"       [2019-06-04 Tue 16:11]
 ** TODO move emacs config
 Should include emacsnotes
 ** TODO move tmux config
 ** TODO move scripts
+** TODO move termite config
+** TODO move neofetch config
+** TODO move git config
+need to add a .gitignore for the local file
+** TODO move compton config
 * vim
 ** TODO play around with neomake or ale instead of syntastic (may be better? IDK)
 - [[https://github.com/w0rp/ale][ale]]
