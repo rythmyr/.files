@@ -29,7 +29,11 @@ CLOSED: [2019-06-04 Tue 21:24]
 CLOSED: [2019-06-04 Tue 21:54]
 - State "DONE"       from "TODO"       [2019-06-04 Tue 21:54]
 need to add a .gitignore for the local file
-** TODO move compton config
+** DONE move compton config
+CLOSED: [2019-06-04 Tue 22:29]
+- State "DONE"       from "TODO"       [2019-06-04 Tue 22:29]
+** TODO move rofi config
+** TODO move ssh config
 * vim
 ** TODO play around with neomake or ale instead of syntastic (may be better? IDK)
 - [[https://github.com/w0rp/ale][ale]]
