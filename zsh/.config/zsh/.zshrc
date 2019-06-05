@@ -1,6 +1,7 @@
 
 
 echo "sourcing .zshrc"
+[ -s "$HOME/.config/zsh/environment.zsh" ] && \. "$HOME/.config/zsh/environment.zsh"
 [ -s "$HOME/.config/zsh/completions.zsh" ] && \. "$HOME/.config/zsh/completions.zsh"
 [ -s "$HOME/.config/zsh/alias.zsh" ] && \. "$HOME/.config/zsh/alias.zsh"
 [ -s "$HOME/.config/zsh/local.zsh" ] && \. "$HOME/.config/zsh/local.zsh"
