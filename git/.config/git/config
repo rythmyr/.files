@@ -1,0 +1,38 @@
+[url "https://"]
+    insteadOf = git://
+[core]
+    editor = /usr/bin/nvim
+[diff]
+    tool = vimdiff
+[merge]
+    conflictstyle = diff3
+    tool = vimdiff
+[difftool]
+    prompt = false
+[mergetool "vimdiff"]
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w | wincmd J'
+[difftool "vimdiff"]
+    cmd = nvim -d $LOCAL $REMOTE
+[alias]
+    a = add -u
+    aa = add -A
+    amend = commit --amend -v
+    b = checkout -b
+    bap = "!git a && git b \"$1\" && git cm && wait && git p"
+    ce = "config --global -e"
+    cm = commit -v
+    co = checkout
+    exec = "!exec "
+    f = fetch --tags --all --prune --force
+    l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lce = "config -e"
+    mom = merge origin/master
+    p = push -u origin HEAD
+    pf = push -u origin HEAD --force-with-lease
+    s = status --short
+    u = reset HEAD --
+    update = "!git a && git amend && git p -f"
+[mergetool]
+    keepBackup = false
+[include]
+    path = local

@@ -25,7 +25,9 @@ CLOSED: [2019-06-04 Tue 21:02]
 ** DONE move neofetch config
 CLOSED: [2019-06-04 Tue 21:24]
 - State "DONE"       from "TODO"       [2019-06-04 Tue 21:24]
-** TODO move git config
+** DONE move git config
+CLOSED: [2019-06-04 Tue 21:54]
+- State "DONE"       from "TODO"       [2019-06-04 Tue 21:54]
 need to add a .gitignore for the local file
 ** TODO move compton config
 * vim
