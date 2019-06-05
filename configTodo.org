@@ -15,7 +15,9 @@ CLOSED: [2019-06-04 Tue 16:11]
 - State "DONE"       from "TODO"       [2019-06-04 Tue 16:11]
 ** TODO move emacs config
 Should include emacsnotes
-** TODO move tmux config
+** DONE move tmux config
+CLOSED: [2019-06-04 Tue 20:41]
+- State "DONE"       from "TODO"       [2019-06-04 Tue 20:41]
 ** TODO move scripts
 ** TODO move termite config
 ** TODO move neofetch config

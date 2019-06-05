@@ -8,9 +8,16 @@ In order to use these as dotfiles, you need to install [[https://www.gnu.org/sof
 3.
 
 * Package list
-| Name | Purpose               |
-|------+-----------------------|
-| i3wm | Window Manager        |
-| tmux | Terminal Multiplexer  |
-| stow | for managing dotfiles |
-|      |                       |
+| Name               | Purpose                |
+|--------------------+------------------------|
+| i3-wm              | Window Manager         |
+| tmux               | Terminal Multiplexer   |
+| stow               | for managing dotfiles  |
+| zsh                | Shell                  |
+| termite            | Terminal Emulator      |
+| neovim             | Text Editor/IDE        |
+| emacs              | Text Editor (org mode) |
+| rofi               | Application Launcher   |
+| i3lock-color (aur) | Screen Locker          |
+| i3bar              | Status bar             |
+|                    |                        |
