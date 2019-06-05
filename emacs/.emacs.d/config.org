@@ -1,0 +1,150 @@
+#+TITLE: Emacs Config
+
+* Use-Package config
+
+always make sure the package is installed before trying to use it
+
+#+BEGIN_SRC emacs-lisp
+  (setq use-package-always-ensure t)
+#+END_SRC
+
+* Sensible defaults
+
+Be sure and clone [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] into ~/.emacs.d/lib
+
+=mkdir -p ~/.emacs.d/lib/ && cd ~/.emacs.d/lib/ && git clone https://github.com/hrs/sensible-defaults.el=
+
+#+BEGIN_SRC emacs-lisp
+  (load-file "~/.emacs.d/lib/sensible-defaults.el/sensible-defaults.el")
+  (sensible-defaults/use-all-settings)
+  (sensible-defaults/bind-home-and-end-keys)
+  (sensible-defaults/set-default-line-length-to 140)
+  (setq backup-directory-alist
+        '((".*" . "~/.cache/emacs/backup")))
+  (setq auto-save-file-name-transforms
+        `((".*" "~/.cache/emacs/autosave" t)))
+  (if (file-directory-p "~/.cache/emacs/backup") () (make-directory "~/.cache/emacs/backup" t))
+  (if (file-directory-p "~/.cache/emacs/autosave") () (make-directory "~/.cache/emacs/autosave" t))
+;; I don't want mine in a temp file, I want it in .local
+#+END_SRC
+
+* UI settings
+** Theme
+use solarized dark theme, don't change fonts for headers
+
+#+BEGIN_SRC emacs-lisp
+  (use-package solarized-theme
+  :ensure t
+    :config
+    (setq solarized-use-variable-pitch nil
+          solarized-scale-org-headlines nil)
+    (load-theme 'solarized-dark t))
+#+END_SRC
+** Other settings
+
+#+BEGIN_SRC emacs-lisp
+  (setq-default display-line-numbers 'relative)
+  (menu-bar-mode -1)
+  (toggle-scroll-bar -1)
+  (tool-bar-mode -1)
+  (setq-default global-visual-line-mode t)
+#+END_SRC
+
+* Evil
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil
+    :config
+    (evil-mode t)
+    :ensure t
+  )
+  (use-package evil-org
+    :after org
+    :config
+    (add-hook 'org-mode-hook 'evil-org-mode)
+    :ensure t
+  )
+  (setq evil-org-retain-visual-state-on-shift t)
+#+END_SRC
+
+* Org mode
+
+#+BEGIN_SRC emacs-lisp
+  (global-set-key "\C-cl" 'org-store-link)
+  (global-set-key "\C-ca" 'org-agenda)
+  (global-set-key "\C-cc" 'org-capture)
+  (global-set-key "\C-cb" 'org-switchb)
+
+  (setq org-directory "~/org")
+  (setq org-log-done 'time)
+  (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-cycle-separator-lines 1)
+  (setq org-M-RET-may-split-line nil)
+
+  (add-hook 'org-mode-hook #'(lambda ()
+                               (org-indent-mode)
+                               (visual-line-mode)))
+
+#+END_SRC
+
+* Programming
+** Overall
+*** company, for completions
+
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+    :custom
+    (company-idle-delay 0)
+    :ensure t
+    )
+#+END_SRC
+
+*** TODO projectile, for keeping projects separate
+
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+    :config
+    (projectile-mode +1)
+    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+    :ensure t
+    )
+#+END_SRC
+
+*** TODO magit, for git integration
+
+** Unity 3d (C Sharp)
+
+#+BEGIN_SRC emacs-lisp
+  (use-package omnisharp
+    :ensure t
+    :hook ((csharp-mode . omnisharp-mode)
+           (csharp-mode . flycheck-mode)
+           (csharp-mode . company-mode))
+    :config
+    (add-to-list 'company-backends 'company-omnisharp)
+    )
+#+END_SRC
+
+** Typescript
+
+#+BEGIN_SRC emacs-lisp
+  (use-package tide
+    :commands tide-setup
+    :custom
+    (tide-tsserver-executable "node_modules/typescript/bin/tsserver" "use local tsserver")
+    :hook ((typescript-mode . tide-setup)
+           (typescript-mode . tide-hl-identifier-mode)
+           (typescript-mode . flycheck-mode)
+           (typescript-mode . eldoc-mode)
+           (typescript-mode . company-mode)
+          )
+    :bind (:map typescript-mode-map
+                ("C-c d" . 'tide-jump-to-definition)
+                ("C-c u" . 'tide-references)
+                ("C-c r" . 'tide-rename-symbol)
+                ("C-c x" . 'tide-fix)
+                ("C-c o" . 'tide-organize-imports)
+                ("C-c e" . 'tide-error-at-point))
+    :ensure t
+    )
+#+END_SRC

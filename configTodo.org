@@ -13,7 +13,9 @@ CLOSED: [2019-06-04 Tue 15:57]
 ** DONE move (n)vim config
 CLOSED: [2019-06-04 Tue 16:11]
 - State "DONE"       from "TODO"       [2019-06-04 Tue 16:11]
-** TODO move emacs config
+** DONE move emacs config
+CLOSED: [2019-06-04 Tue 23:52]
+- State "DONE"       from "TODO"       [2019-06-04 Tue 23:52]
 Should include emacsnotes
 ** DONE move tmux config
 CLOSED: [2019-06-04 Tue 20:41]
@@ -44,6 +46,7 @@ CLOSED: [2019-06-04 Tue 22:35]
 - [[https://github.com/neomake/neomake][neomake]]
 ** TODO update the "npm-based projects" section to search parent directories for package.json
 * emacs
+** TODO figure out a good way to get sensible-defaults.el automatically
 ** TODO get magit working in emacs
 ** TODO figure out a good way to update all installed packages
 this might already be built into use-package or package.el
