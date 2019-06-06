@@ -31,6 +31,8 @@ local function prompt_dir() {
     local relativePath
     local projectDir
     local thisDir
+    local realPwd
+    local fakePwd
 
     relativePath="$(echo $1 | cut -f2)"
     [ -z $relativePath ] && echo -n "%F{5}%~%f" && exit
@@ -38,11 +40,16 @@ local function prompt_dir() {
     #only executes if in a git controlled directory
 
     # either pwd relative to $HOME or full path
-    thisDir=${$(pwd)/$HOME/\~}
-    # the thing passed in
-    projectDir=${${thisDir%$relativePath}%/}
+    # pwd -P gets real path (no symlinks)
+    realPwd=$(pwd -P)
+    fakePwd=$(pwd)
+
+    projectDir=${${${realPwd%$relativePath}%/}/$HOME/\~}
     echo -n "%F{3}$projectDir%f"
     [ ! $relativePath = "." ] && echo -n "%F{4}/%f%B%F{5}$relativePath%f%b"
+    if [ $realPwd != $fakePwd ]; then
+        echo -n "\n%F{13}|%f (%F{6}%~%f)"
+    fi
 }
 
 local function prompt_branch() {

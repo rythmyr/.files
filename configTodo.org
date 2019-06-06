@@ -71,8 +71,14 @@ I'm tired of the inconsistency between work and home (1 being left vs center, re
 ** TODO configure i3 to load my layout immediately upon starting      :work:
 * zsh
 ** TODO prompt - fix prompt when inside of the .git directory of a git repo
-** TODO BUG: prompt - shows both full path and relative path when following a symlink to git versioned directory
 ** TODO move some entries from .zshenv to an env.zsh, which will get sourced everytime
+** Archive :ARCHIVE:
+*** DONE BUG: prompt - shows both full path and relative path when following a symlink to git versioned directory
+CLOSED: [2019-06-06 Thu 17:53]
+:PROPERTIES:
+:ARCHIVE_TIME: 2019-06-06 Thu 17:53
+:END:
+- State "DONE"       from "TODO"       [2019-06-06 Thu 17:53]
 * misc
 ** TODO stow - Add configurations for different programs to the stow repo
 ** TODO cfg - if file doesn't exist in one place, copy the file
