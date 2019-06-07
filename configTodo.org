@@ -20,7 +20,9 @@ Should include emacsnotes
 ** DONE move tmux config
 CLOSED: [2019-06-04 Tue 20:41]
 - State "DONE"       from "TODO"       [2019-06-04 Tue 20:41]
-** TODO move scripts
+** DONE move scripts
+CLOSED: [2019-06-05 Wed 01:37]
+- State "DONE"       from "TODO"       [2019-06-05 Wed 01:37]
 ** DONE move termite config
 CLOSED: [2019-06-04 Tue 21:02]
 - State "DONE"       from "TODO"       [2019-06-04 Tue 21:02]
@@ -79,6 +81,12 @@ CLOSED: [2019-06-06 Thu 17:53]
 :ARCHIVE_TIME: 2019-06-06 Thu 17:53
 :END:
 - State "DONE"       from "TODO"       [2019-06-06 Thu 17:53]
+*** DONE prompt - BUG only shows logical path if in a symlink that isn't in a git repo
+CLOSED: [2019-06-07 Fri 16:21]
+:PROPERTIES:
+:ARCHIVE_TIME: 2019-06-07 Fri 16:21
+:END:
+- State "DONE"       from "TODO"       [2019-06-07 Fri 16:21]
 * misc
 ** TODO stow - Add configurations for different programs to the stow repo
 ** TODO cfg - if file doesn't exist in one place, copy the file

@@ -27,28 +27,39 @@ vi_mode_prompt_info() {
     echo -n "%F{4}$MAP%f"
 }
 
+local function prompt_symlink_dir() {
+    local realPwd
+    local fakePwd
+
+    realPwd=$(pwd -P)
+    fakePwd=$(pwd -L)
+
+    if [ $realPwd != $fakePwd ]; then
+        echo -n "\n%F{13}|%f (%F{6}%~%f)"
+    fi
+}
+
 local function prompt_dir() {
     local relativePath
     local projectDir
     local thisDir
     local realPwd
-    local fakePwd
 
     relativePath="$(echo $1 | cut -f2)"
-    [ -z $relativePath ] && echo -n "%F{5}%~%f" && exit
 
-    #only executes if in a git controlled directory
-
-    # either pwd relative to $HOME or full path
-    # pwd -P gets real path (no symlinks)
     realPwd=$(pwd -P)
-    fakePwd=$(pwd)
-
     projectDir=${${${realPwd%$relativePath}%/}/$HOME/\~}
-    echo -n "%F{3}$projectDir%f"
-    [ ! $relativePath = "." ] && echo -n "%F{4}/%f%B%F{5}$relativePath%f%b"
-    if [ $realPwd != $fakePwd ]; then
-        echo -n "\n%F{13}|%f (%F{6}%~%f)"
+
+    if [ -z $relativePath ]; then
+        echo -n "%F{5}$projectDir%f" && exit
+    else
+        #only executes if in a git controlled directory
+
+        # either pwd relative to $HOME or full path
+        echo -n "%F{3}$projectDir%f"
+        if [ ! $relativePath = "." ]; then
+            echo -n "%F{4}/%f%B%F{5}$relativePath%f%b"
+        fi
     fi
 }
 
@@ -68,7 +79,7 @@ zle -N zle-keymap-select
 KEYTIMEOUT=4
 
 PROMPT='
-%B%F{13}┌%b%f$(vi_mode_prompt_info) $(prompt_dir "$vcs_info_msg_0_")
+%B%F{13}┌%b%f$(vi_mode_prompt_info) $(prompt_dir "$vcs_info_msg_0_") $(prompt_symlink_dir)
 %B%F{13}└>%f%b '
 RPROMPT='$(prompt_branch "$vcs_info_msg_0_")  %F{4}%*%f'
 
