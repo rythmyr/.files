@@ -71,6 +71,7 @@ vim uses the terminal colors so it just kind of works
 ** TODO manually map workspaces 1-3 to displays
 I'm tired of the inconsistency between work and home (1 being left vs center, respectively)
 ** TODO configure i3 to load my layout immediately upon starting      :work:
+** TODO fix i3's mode (i.e. "resize") text on the bar is white and should be black
 * zsh
 ** TODO prompt - fix prompt when inside of the .git directory of a git repo
 ** TODO move some entries from .zshenv to an env.zsh, which will get sourced everytime
@@ -109,6 +110,7 @@ Should only run on my home computer
 if keybase disappears, I don't want to lose everything
 ** TODO backups - backup the keybase art directory every week or so
 this isn't as big of a deal, but I don't really want to lose my art, either. Some of those can't be redownloaded
+** TODO change README to use headings instead of a table for the list of packages
 ** Archive :ARCHIVE:
 *** DONE cfg - look into using [[https://www.gnu.org/software/stow/][GNU stow]] to manage config files
 CLOSED: [2019-06-04 Tue 15:15]

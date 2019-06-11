@@ -3,25 +3,25 @@
 * Installation
 In order to use these as dotfiles, you need to install [[https://www.gnu.org/software/stow/][GNU stow]] (=pacman -S stow=)
 
-1. Clone the repo into a folder in your home directory, e.g. =cd ~; git clone git@github.com:rythmyr/.files=
+1. Clone the repo into a folder in your home directory, e.g. =cd ~; git clone --recursive git@github.com:rythmyr/.files=
 2. in the directory you cloned it into, run =./setup.zsh=
 3. It'll tell you if you have any conflicts for each package, but won't do anything for any of the packages if any of them have conflicts
 4. If you want to install just a single package, you can use =stow <package>=
 
 * Package list
-| pacman package     | Purpose                            | stow package |
-|--------------------+------------------------------------+--------------|
-| stow               | for managing dotfiles              | N/A          |
-| i3-wm              | Window Manager                     | [[file:i3][i3]]           |
-| zsh                | Shell                              | [[file:zsh][zsh]]          |
-| termite            | Terminal Emulator                  | [[file:termite][termite]]      |
-| tmux               | Terminal Multiplexer               | [[file:tmux][tmux]]         |
-| neovim             | Text Editor / IDE                  | [[file:nvim][nvim]]         |
-| rofi               | Application Launcher               | [[file:rofi][rofi]]         |
-| openssh            | SSH client/server                  | [[file:ssh][ssh]]          |
-| i3blocks           | status command for i3bar           | [[file:i3][i3]]           |
-| emacs              | Text Editor (org mode)             | [[file:emacs][emacs]]        |
-| i3lock-color (aur) | Screen Locker                      |              |
-| compton            | Compositing manager (transparency) | [[file:compton][compton]]      |
-| neofetch           | show system information            | [[file:neofetch][neofetch]]     |
-|                    |                                    |              |
+| pacman package     | Purpose                            | configured in | requires                      |
+|--------------------+------------------------------------+---------------+-------------------------------|
+| stow               | for managing dotfiles              | N/A           |                               |
+| i3-wm              | Window Manager                     | [[file:i3][i3]]            | dex xdotool feh xautolock     |
+| zsh                | Shell                              | [[file:zsh][zsh]]           | neofetch ssh                  |
+| termite            | Terminal Emulator                  | [[file:termite][termite]]       |                               |
+| tmux               | Terminal Multiplexer               | [[file:tmux][tmux]]          |                               |
+| neovim             | Text Editor / IDE                  | [[file:nvim][nvim]]          |                               |
+| rofi               | Application Launcher               | [[file:rofi][rofi]]          |                               |
+| openssh            | SSH client/server                  | [[file:ssh][ssh]]           |                               |
+| i3blocks           | status command for i3bar           | [[file:i3][i3]]            |                               |
+| emacs              | Text Editor (org mode)             | [[file:emacs][emacs]]         |                               |
+| i3lock-color (aur) | Screen Locker                      |               |                               |
+| compton            | Compositing manager (transparency) | [[file:compton][compton]]       |                               |
+| neofetch           | show system information            | [[file:neofetch][neofetch]]      |                               |
+|                    |                                    |               |                               |

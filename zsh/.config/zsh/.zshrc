@@ -20,5 +20,7 @@ setopt histignorealldups
 bindkey -v
 bindkey "^?" backward-delete-char
 
+[ -s "$HOME/.config/zsh/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && \. "$HOME/.config/zsh/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
 
 neofetch
