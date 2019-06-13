@@ -35,7 +35,7 @@ local function prompt_symlink_dir() {
     fakePwd=$(pwd -L)
 
     if [ $realPwd != $fakePwd ]; then
-        echo -n "\n%F{13}|%f (%F{6}%~%f)"
+        echo -n "\n%F{13}│%f (%F{6}%~%f)"
     fi
 }
 
