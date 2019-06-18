@@ -59,7 +59,9 @@ evil-define-key is probably the elisp function I want.
 Might need to take mappings out of the :bind use-package setting
 * tmux
 ** TODO mess around with tmux settings
-** TODO configure <prefix>h-l to do the same thing as the arrow keys
+** DONE configure <prefix>h-l to do the same thing as the arrow keys
+CLOSED: [2019-06-18 Tue 15:01]
+- State "DONE"       from "TODO"       [2019-06-18 Tue 15:01]
 * colors
 ** TODO dmenu
 ** TODO emacs
