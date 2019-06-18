@@ -1,10 +1,5 @@
 set nocompatible
 
-if has('nvim')
-    let g:python_host_prog = '/usr/bin/python2'
-    let g:python3_host_prog = '/usr/bin/python3'
-endif
-
 set runtimepath^=~/.local/nvim
 let &packpath = &runtimepath
 
@@ -25,7 +20,11 @@ else
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+"Syntax checking/linting
 Plug 'vim-syntastic/syntastic'
+
+"automatically close braces
+Plug 'jiangmiao/auto-pairs'
 
 " git plugins
 Plug 'tpope/vim-fugitive'
@@ -96,7 +95,6 @@ vnoremap > >gv
 inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
-" 
 nnoremap <space> za
 
 "=================="
@@ -140,7 +138,6 @@ fun! s:setTypescriptOptions()
     nnoremap <buffer> <localleader>f vi{zf
     ab <buffer> clog console.log
     ab <buffer> cerr console.error
-    ab <buffer> t this
 endfun
 augroup typescript
     autocmd!
