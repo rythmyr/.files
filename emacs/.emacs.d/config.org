@@ -19,27 +19,41 @@ Be sure and clone [[https://github.com/hrs/sensible-defaults.el][sensible-defaul
   (sensible-defaults/use-all-settings)
   (sensible-defaults/bind-home-and-end-keys)
   (sensible-defaults/set-default-line-length-to 140)
+#+END_SRC
+
+I use some of my own custom defaults as well
+
+#+BEGIN_SRC emacs-lisp
+  ;; store backups and autosaves in ~/.cache instead of the same dir as the file
   (setq backup-directory-alist
-        '((".*" . "~/.cache/emacs/backup")))
+        '((".*" . "~/.cache/emacs/backup/")))
   (setq auto-save-file-name-transforms
-        `((".*" "~/.cache/emacs/autosave" t)))
-  (if (file-directory-p "~/.cache/emacs/backup") () (make-directory "~/.cache/emacs/backup" t))
-  (if (file-directory-p "~/.cache/emacs/autosave") () (make-directory "~/.cache/emacs/autosave" t))
-;; I don't want mine in a temp file, I want it in .local
+        `((".*" "~/.cache/emacs/autosave/" t)))
+
+  ;; create those directories if they don't already exist
+  (if (file-directory-p "~/.cache/emacs/backup/") () (make-directory "~/.cache/emacs/backup/" t))
+  (if (file-directory-p "~/.cache/emacs/autosave/") () (make-directory "~/.cache/emacs/autosave/" t))
+
+  ;; use a custom file instead of init.el for those pesky packages that add custom variables
+  (setq custom-file "~/.emacs.d/custom.el")
+  (load custom-file)
 #+END_SRC
 
 * UI settings
+
 ** Theme
+
 use solarized dark theme, don't change fonts for headers
 
 #+BEGIN_SRC emacs-lisp
   (use-package solarized-theme
-  :ensure t
+    :ensure t
     :config
     (setq solarized-use-variable-pitch nil
           solarized-scale-org-headlines nil)
     (load-theme 'solarized-dark t))
 #+END_SRC
+
 ** Other settings
 
 #+BEGIN_SRC emacs-lisp
@@ -88,7 +102,18 @@ use solarized dark theme, don't change fonts for headers
 #+END_SRC
 
 * Programming
+
 ** Overall
+
+*** editorconfig
+
+#+BEGIN_SRC emacs-lisp
+  (use-package editorconfig
+    :ensure t
+    :config
+    (editorconfig-mode 1))
+#+END_SRC
+
 *** company, for completions
 
 #+BEGIN_SRC emacs-lisp
@@ -99,7 +124,7 @@ use solarized dark theme, don't change fonts for headers
     )
 #+END_SRC
 
-*** TODO projectile, for keeping projects separate
+*** projectile, for keeping projects separate
 
 #+BEGIN_SRC emacs-lisp
   (use-package projectile
@@ -111,6 +136,11 @@ use solarized dark theme, don't change fonts for headers
 #+END_SRC
 
 *** TODO magit, for git integration
+
+#+BEGIN_SRC emacs-lisp
+  (use-package magit)
+
+#+END_SRC
 
 ** Unity 3d (C Sharp)
 
