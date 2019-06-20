@@ -237,7 +237,7 @@ bar {
 
 bindsym --release ctrl+Print exec --no-startup-id ~/scripts/screenshot.sh
 bindsym --release Print exec --no-startup-id ~/scripts/fullscreenshot.sh
-bindsym $mod+b exec --no-startup-id ~/scripts/lock
+bindsym $mod+b exec --no-startup-id ~/scripts/lock.zsh
 
 
 # Audio and Music
