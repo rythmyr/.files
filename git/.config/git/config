@@ -2,6 +2,7 @@
     insteadOf = git://
 [core]
     editor = /usr/bin/nvim
+    excludesfile = ~/.config/git/ignore
 [diff]
     tool = vimdiff
 [merge]
