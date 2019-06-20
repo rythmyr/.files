@@ -1,13 +1,5 @@
 #+TITLE: Emacs Config
 
-* Use-Package config
-
-always make sure the package is installed before trying to use it
-
-#+BEGIN_SRC emacs-lisp
-  (setq use-package-always-ensure t)
-#+END_SRC
-
 * Sensible defaults
 
 Be sure and clone [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] into ~/.emacs.d/lib
@@ -68,15 +60,9 @@ use solarized dark theme, don't change fonts for headers
 
 #+BEGIN_SRC emacs-lisp
   (use-package evil
+    :ensure t
     :config
     (evil-mode t)
-    :ensure t
-  )
-  (use-package evil-org
-    :after org
-    :config
-    (add-hook 'org-mode-hook 'evil-org-mode)
-    :ensure t
   )
   (setq evil-org-retain-visual-state-on-shift t)
 #+END_SRC
@@ -84,14 +70,20 @@ use solarized dark theme, don't change fonts for headers
 * Org mode
 
 #+BEGIN_SRC emacs-lisp
+  (use-package evil-org
+    :ensure t
+    :after (evil org)
+    :hook
+    (org-mode . evil-org-mode)
+  )
   (global-set-key "\C-cl" 'org-store-link)
   (global-set-key "\C-ca" 'org-agenda)
   (global-set-key "\C-cc" 'org-capture)
   (global-set-key "\C-cb" 'org-switchb)
 
-  (setq org-directory "~/org")
+  (setq org-directory "~/data/org/")
   (setq org-log-done 'time)
-  (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-default-notes-file (concat org-directory "notes.org"))
   (setq org-cycle-separator-lines 1)
   (setq org-M-RET-may-split-line nil)
 
@@ -118,9 +110,9 @@ use solarized dark theme, don't change fonts for headers
 
 #+BEGIN_SRC emacs-lisp
   (use-package company
+    :ensure t
     :custom
     (company-idle-delay 0)
-    :ensure t
     )
 #+END_SRC
 
@@ -128,18 +120,22 @@ use solarized dark theme, don't change fonts for headers
 
 #+BEGIN_SRC emacs-lisp
   (use-package projectile
+    :ensure t
     :config
     (projectile-mode +1)
     (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
-    :ensure t
     )
 #+END_SRC
 
 *** TODO magit, for git integration
 
 #+BEGIN_SRC emacs-lisp
-  (use-package magit)
-
+  (use-package magit
+    :ensure t)
+  (use-package evil-magit
+    :ensure t
+    :after (evil magit)
+  )
 #+END_SRC
 
 ** Unity 3d (C Sharp)
@@ -163,6 +159,7 @@ use solarized dark theme, don't change fonts for headers
 
 #+BEGIN_SRC emacs-lisp
   (use-package tide
+    :ensure t
     :commands tide-setup
     :custom
     (tide-tsserver-executable "node_modules/typescript/bin/tsserver" "use local tsserver")
@@ -179,6 +176,5 @@ use solarized dark theme, don't change fonts for headers
                 ("C-c x" . 'tide-fix)
                 ("C-c o" . 'tide-organize-imports)
                 ("C-c e" . 'tide-error-at-point))
-    :ensure t
     )
 #+END_SRC
