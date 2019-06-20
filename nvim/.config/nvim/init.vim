@@ -132,10 +132,10 @@ fun! s:setTypescriptOptions()
     nnoremap <buffer> <localleader>r :TSRename <C-r><C-w>
     nnoremap <buffer> <localleader>p :TSDefPreview<cr>
     nnoremap <buffer> <localleader>e :TSGetDiagnostics<cr>
-    nnoremap <buffer> <localleader>i :TSGetCodeFix<cr>
+    nnoremap <buffer> <localleader>f :TSGetCodeFix<cr>
     nnoremap <buffer> <localleader>/ I// <c-\><c-n>
     nnoremap <buffer> <localleader>? :s/\/\/ \?//<cr>:noh<cr>
-    nnoremap <buffer> <localleader>f vi{zf
+    nnoremap <buffer> <localleader>z vi{zf
     ab <buffer> clog console.log
     ab <buffer> cerr console.error
 endfun
