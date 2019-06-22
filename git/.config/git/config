@@ -1,7 +1,7 @@
 [url "https://"]
     insteadOf = git://
 [core]
-    editor = /usr/bin/nvim
+    editor = nvim
     excludesfile = ~/.config/git/ignore
 [diff]
     tool = vimdiff
@@ -17,9 +17,9 @@
 [alias]
     a = add -u
     aa = add -A
+    abc = "!git a && git b \"$1\" && git cm"
     amend = commit --amend -v
     b = checkout -b
-    bap = "!git a && git b \"$1\" && git cm && wait && git p"
     ce = "config --global -e"
     cm = commit -v
     co = checkout
