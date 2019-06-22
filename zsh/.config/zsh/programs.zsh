@@ -3,6 +3,10 @@ echo "sourcing programs.zsh"
 
 # load Node Version Manager
 [ -s "/usr/share/nvm/init-nvm.sh" ] && \. /usr/share/nvm/init-nvm.sh
+# on the mac
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. /usr/local/opt/nvm/nvm.sh
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. /usr/local/opt/nvm/etc/bash_completion.d/nvm
+
 
 local SSH_CMD="ssh-agent -s -t 30m"
 
