@@ -58,9 +58,23 @@ use solarized dark theme, don't change fonts for headers
 
 * Evil
 
+** evil leader
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-leader
+    :ensure t
+    :config
+    (evil-leader/set-leader "<SPC>")
+    (global-evil-leader-mode)
+  )
+#+END_SRC
+
+** base evil
+
 #+BEGIN_SRC emacs-lisp
   (use-package evil
     :ensure t
+    :after (evil-leader)
     :config
     (evil-mode t)
   )
@@ -76,16 +90,17 @@ use solarized dark theme, don't change fonts for headers
     :hook
     (org-mode . evil-org-mode)
   )
-  (global-set-key "\C-cl" 'org-store-link)
-  (global-set-key "\C-ca" 'org-agenda)
-  (global-set-key "\C-cc" 'org-capture)
-  (global-set-key "\C-cb" 'org-switchb)
+  ;; using 'o' for 'org'
+  (evil-leader/set-key "ol" 'org-store-link
+                       "oa" 'org-agenda
+                       "oc" 'org-capture
+                       "ob" 'org-switchb)
 
-  (setq org-directory "~/data/org/")
-  (setq org-log-done 'time)
-  (setq org-default-notes-file (concat org-directory "notes.org"))
-  (setq org-cycle-separator-lines 1)
-  (setq org-M-RET-may-split-line nil)
+  (setq org-directory "~/data/org/"
+        org-log-done 'time
+        org-default-notes-file (concat org-directory "notes.org")
+        org-cycle-separator-lines 1
+        org-M-RET-may-split-line nil)
 
   (add-hook 'org-mode-hook #'(lambda ()
                                (org-indent-mode)
@@ -135,6 +150,8 @@ use solarized dark theme, don't change fonts for headers
   (use-package evil-magit
     :ensure t
     :after (evil magit)
+    :config
+    (evil-leader/set-key "gs" 'magit-status)
   )
 #+END_SRC
 
@@ -148,11 +165,10 @@ use solarized dark theme, don't change fonts for headers
            (csharp-mode . company-mode))
     :config
     (add-to-list 'company-backends 'company-omnisharp)
-    (evil-define-key 'normal omnisharp-mode-map (kbd "\\ d") 'omnisharp-go-to-definition)
-    (evil-define-key 'normal omnisharp-mode-map (kbd "\\ u") 'omnisharp-find-usages)
-    (evil-define-key 'normal omnisharp-mode-map (kbd "\\ i") 'omnisharp-fix-code-issue-at-point)
-    (evil-define-key 'normal omnisharp-mode-map (kbd "\\ r") 'omnisharp-rename)
-    )
+    (evil-leader/set-key-for-mode 'omnisharp-mode "d" 'omnisharp-go-to-definition
+                                                  "u" 'omnisharp-find-usages
+                                                  "i" 'omnisharp-fix-code-issue-at-point
+                                                  "r" 'omnisharp-rename))
 #+END_SRC
 
 ** Typescript
@@ -168,13 +184,32 @@ use solarized dark theme, don't change fonts for headers
            (typescript-mode . flycheck-mode)
            (typescript-mode . eldoc-mode)
            (typescript-mode . company-mode)
-          )
-    :bind (:map typescript-mode-map
-                ("C-c d" . 'tide-jump-to-definition)
-                ("C-c u" . 'tide-references)
-                ("C-c r" . 'tide-rename-symbol)
-                ("C-c x" . 'tide-fix)
-                ("C-c o" . 'tide-organize-imports)
-                ("C-c e" . 'tide-error-at-point))
-    )
+           )
+    :config
+    (evil-leader/set-key-for-mode 'typescript-mode "d" 'tide-jump-to-definition
+                                                   "u" 'tide-references
+                                                   "r" 'tide-rename-symbol
+                                                   "f" 'tide-fix
+                                                   "o" 'tide-organize-imports
+                                                   "e" 'tide-error-at-point))
+#+END_SRC
+
+* Misc keybinds
+
+** Edit config
+
+#+BEGIN_SRC emacs-lisp
+  (defun my-edit-config ()
+    (interactive)
+    (find-file "~/.emacs.d/config.org"))
+  (evil-leader/set-key "ce" 'my-edit-config)
+#+END_SRC
+
+** Reload config
+
+#+BEGIN_SRC emacs-lisp
+  (defun my-reload-config ()
+    (interactive)
+    (org-babel-load-file "~/.emacs.d/config.org"))
+  (evil-leader/set-key "cr" 'my-reload-config)
 #+END_SRC
