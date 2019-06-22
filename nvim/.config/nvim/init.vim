@@ -74,10 +74,10 @@ hi Search ctermfg=13
 "universal mappings"
 "=================="
 
-let mapleader = ","
-nnoremap <leader>ev :tabnew $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>j :j<cr>
+nnoremap <space> <nop>
+let mapleader = " "
+nnoremap <leader>ce :tabnew $MYVIMRC<cr>
+nnoremap <leader>cr :source $MYVIMRC<cr>
 
 " move lines up and down
 noremap _ :normal ddkP<cr>
@@ -125,17 +125,17 @@ let g:syntastic_always_populate_loc_list = 1
 "typescript stuff
 fun! s:setTypescriptOptions()
     imap <buffer> <C-Space> <c-x><c-o>
-    let maplocalleader = "\\"
-    nnoremap <buffer> <localleader>u :TSRefs<cr>
-    nnoremap <buffer> <localleader>d :TSDef<cr>
-    nnoremap <buffer> <localleader>t :TSTypeDef<cr>
-    nnoremap <buffer> <localleader>r :TSRename <C-r><C-w>
-    nnoremap <buffer> <localleader>p :TSDefPreview<cr>
-    nnoremap <buffer> <localleader>e :TSGetDiagnostics<cr>
-    nnoremap <buffer> <localleader>f :TSGetCodeFix<cr>
-    nnoremap <buffer> <localleader>/ I// <c-\><c-n>
-    nnoremap <buffer> <localleader>? :s/\/\/ \?//<cr>:noh<cr>
-    nnoremap <buffer> <localleader>z vi{zf
+    let maplocalleader = "<space>"
+    nnoremap <buffer> <localleader>lu :TSRefs<cr>
+    nnoremap <buffer> <localleader>ld :TSDef<cr>
+    nnoremap <buffer> <localleader>lt :TSTypeDef<cr>
+    nnoremap <buffer> <localleader>lr :TSRename <C-r><C-w>
+    nnoremap <buffer> <localleader>lp :TSDefPreview<cr>
+    nnoremap <buffer> <localleader>le :TSGetDiagnostics<cr>
+    nnoremap <buffer> <localleader>lf :TSGetCodeFix<cr>
+    nnoremap <buffer> <localleader>l/ I// <c-\><c-n>
+    nnoremap <buffer> <localleader>l? :s/\/\/ \?//<cr>:noh<cr>
+    nnoremap <buffer> <localleader>lz vi{zf
     ab <buffer> clog console.log
     ab <buffer> cerr console.error
 endfun
