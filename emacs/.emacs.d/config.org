@@ -225,3 +225,29 @@ useful for things like ibuffer, which do not have evil keys by default
     (org-babel-load-file "~/.emacs.d/config.org"))
   (evil-leader/set-key "cr" 'ryth/reload-config)
 #+END_SRC
+
+* Misc
+
+** ido
+
+for better buffer/file switching (C-x b and C-x C-f)
+
+#+BEGIN_SRC emacs-lisp
+  (setq ido-enable-flex-matching t)
+  (setq ido-everywhere t)
+  (ido-mode 1)
+  (evil-leader/set-key "gf" 'ido-find-file)
+#+END_SRC
+
+** ibuffer
+
+for a better buffer list
+
+#+BEGIN_SRC emacs-lisp
+  (use-package ibuffer
+    :ensure t
+    :after (evil-collection)
+    :config
+    (evil-ex-define-cmd "ls" 'ibuffer)
+    (evil-collection-ibuffer-setup))
+#+END_SRC
