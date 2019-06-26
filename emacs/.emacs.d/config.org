@@ -66,6 +66,9 @@ use solarized dark theme, don't change fonts for headers
     :config
     (evil-leader/set-leader "<SPC>")
     (global-evil-leader-mode)
+    :init
+    (setq evil-want-keybinding nil)
+    (setq evil-want-integration t)
   )
 #+END_SRC
 
@@ -79,6 +82,16 @@ use solarized dark theme, don't change fonts for headers
     (evil-mode t)
   )
   (setq evil-org-retain-visual-state-on-shift t)
+#+END_SRC
+
+** evil collection
+
+useful for things like ibuffer, which do not have evil keys by default
+
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-collection
+    :ensure t
+    :after (evil))
 #+END_SRC
 
 * Org mode
@@ -126,9 +139,8 @@ use solarized dark theme, don't change fonts for headers
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :ensure t
-    :custom
-    (company-idle-delay 0)
-    )
+    :config
+    (setq company-idle-delay 250))
 #+END_SRC
 
 *** projectile, for keeping projects separate
