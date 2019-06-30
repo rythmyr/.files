@@ -102,24 +102,45 @@ useful for things like ibuffer, which do not have evil keys by default
     :after (evil org)
     :hook
     (org-mode . evil-org-mode)
+    :config
+    (evil-leader/set-key "ol" 'org-store-link
+                         "oa" 'org-agenda
+                         "oc" 'org-capture
+                         "ob" 'org-switchb)
+    (setq org-directory "~/data/org/"
+          org-default-notes-file (concat org-directory "notes.org")
+          org-cycle-separator-lines 1
+          org-M-RET-may-split-line nil
+          org-agenda-include-diary t
+          org-agenda-start-with-follow-mode t
+          org-agenda-start-day "-1d"
+          org-agenda-start-on-weekday nil)
+    (setq org-capture-templates
+          '(
+            ("g"
+             "General Todo"
+             entry
+             (file+headline "/keybase/private/rythmyr/org/todo.org" "Tasks")
+             "* TODO %?\n  %i\n  %a")
+            ("a"
+             "Appointment"
+             entry
+             (file+headline "/keybase/private/rythmyr/org/events.org" "Appointments")
+             "* %?\nSCHEDULED: %^{Start Time}T")
+            ("j"
+             "Journal"
+             entry
+             (file+datetree "/keybase/private/rythmyr/org/life.org")
+             "* %?\nEntered on %U\n  %i\n  %a")
+          ))
+    (setq org-agenda-files '("/keybase/private/rythmyr/org/events.org"
+                             "/keybase/private/rythmyr/org/todo.org"
+                             "~/data/org/todo.org"))
+    (add-hook 'org-mode-hook #'(lambda ()
+                                 (org-indent-mode)
+                                 (visual-line-mode)))
   )
-  ;; using 'o' for 'org'
-  (evil-leader/set-key "ol" 'org-store-link
-                       "oa" 'org-agenda
-                       "oc" 'org-capture
-                       "ob" 'org-switchb)
-
-  (setq org-directory "~/data/org/"
-        org-log-done 'time
-        org-default-notes-file (concat org-directory "notes.org")
-        org-cycle-separator-lines 1
-        org-M-RET-may-split-line nil)
-
-  (add-hook 'org-mode-hook #'(lambda ()
-                               (org-indent-mode)
-                               (visual-line-mode)))
-
-#+END_SRC
+  #+END_SRC
 
 * Programming
 
