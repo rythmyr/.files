@@ -189,8 +189,6 @@ useful for things like ibuffer, which do not have evil keys by default
   (use-package tide
     :ensure t
     :commands tide-setup
-    :custom
-    (tide-tsserver-executable "node_modules/typescript/bin/tsserver" "use local tsserver")
     :hook ((typescript-mode . tide-setup)
            (typescript-mode . tide-hl-identifier-mode)
            (typescript-mode . flycheck-mode)
@@ -198,6 +196,7 @@ useful for things like ibuffer, which do not have evil keys by default
            (typescript-mode . company-mode)
            )
     :config
+    (setq tide-tsserver-executable "node_modules/typescript/bin/tsserver")
     (evil-leader/set-key-for-mode 'typescript-mode "d" 'tide-jump-to-definition
                                                    "u" 'tide-references
                                                    "r" 'tide-rename-symbol
@@ -215,6 +214,10 @@ useful for things like ibuffer, which do not have evil keys by default
     (interactive)
     (find-file "~/.emacs.d/config.org"))
   (evil-leader/set-key "ce" 'ryth/edit-config)
+  (defun ryth/edit-local-config ()
+    (interactive)
+    (find-file "~/.emacs.d/local.org"))
+  (evil-leader/set-key "cle" 'ryth/edit-local-config)
 #+END_SRC
 
 ** Reload config
@@ -222,7 +225,7 @@ useful for things like ibuffer, which do not have evil keys by default
 #+BEGIN_SRC emacs-lisp
   (defun ryth/reload-config ()
     (interactive)
-    (org-babel-load-file "~/.emacs.d/config.org"))
+    (load user-init-file))
   (evil-leader/set-key "cr" 'ryth/reload-config)
 #+END_SRC
 

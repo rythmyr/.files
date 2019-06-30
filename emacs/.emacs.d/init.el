@@ -16,3 +16,4 @@
 (setq vc-follow-symlinks t)
 
 (org-babel-load-file "~/.emacs.d/config.org")
+(when (file-exists-p "~/.emacs.d/local.org") (org-babel-load-file "~/.emacs.d/local.org"))
