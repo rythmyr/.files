@@ -117,11 +117,11 @@ useful for things like ibuffer, which do not have evil keys by default
           org-agenda-start-on-weekday nil)
     (setq org-capture-templates
           '(
-            ("g"
-             "General Todo"
+            ("t"
+             "Todo"
              entry
              (file+headline "/keybase/private/rythmyr/org/todo.org" "Tasks")
-             "* TODO %?\n  %i\n  %a")
+             "* TODO %?")
             ("a"
              "Appointment"
              entry
