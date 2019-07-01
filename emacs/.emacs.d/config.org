@@ -228,17 +228,45 @@ useful for things like ibuffer, which do not have evil keys by default
 
 * My functions/keybinds
 
-** Edit config
+** Edit files
+
+*** config
 
 #+BEGIN_SRC emacs-lisp
   (defun ryth/edit-config ()
     (interactive)
     (find-file "~/.emacs.d/config.org"))
-  (evil-leader/set-key "ce" 'ryth/edit-config)
+  (evil-leader/set-key "ec" 'ryth/edit-config)
   (defun ryth/edit-local-config ()
     (interactive)
     (find-file "~/.emacs.d/local.org"))
-  (evil-leader/set-key "cle" 'ryth/edit-local-config)
+  (evil-leader/set-key "elc" 'ryth/edit-local-config)
+#+END_SRC
+
+*** todos
+
+#+BEGIN_SRC emacs-lisp
+  (defun ryth/edit-todos ()
+    (interactive)
+    (find-file "/keybase/private/rythmyr/org/todo.org"))
+  (evil-leader/set-key "et" 'ryth/edit-todos)
+  (defun ryth/edit-local-todos ()
+    (interactive)
+    (find-file "~/data/org/todo.org"))
+  (evil-leader/set-key "elt" 'ryth/edit-local-todos)
+#+END_SRC
+
+*** notes
+
+#+BEGIN_SRC emacs-lisp
+  (defun ryth/edit-notes ()
+    (interactive)
+    (find-file "/keybase/private/rythmyr/org/notes.org"))
+  (evil-leader/set-key "en" 'ryth/edit-config)
+  (defun ryth/edit-local-notes ()
+    (interactive)
+    (find-file "~/data/org/notes.org"))
+  (evil-leader/set-key "eln" 'ryth/edit-config)
 #+END_SRC
 
 ** Reload config
