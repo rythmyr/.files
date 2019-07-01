@@ -262,11 +262,11 @@ useful for things like ibuffer, which do not have evil keys by default
   (defun ryth/edit-notes ()
     (interactive)
     (find-file "/keybase/private/rythmyr/org/notes.org"))
-  (evil-leader/set-key "en" 'ryth/edit-config)
+  (evil-leader/set-key "en" 'ryth/edit-notes)
   (defun ryth/edit-local-notes ()
     (interactive)
     (find-file "~/data/org/notes.org"))
-  (evil-leader/set-key "eln" 'ryth/edit-config)
+  (evil-leader/set-key "eln" 'ryth/edit-local-notes)
 #+END_SRC
 
 ** Reload config
