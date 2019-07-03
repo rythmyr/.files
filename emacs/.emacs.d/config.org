@@ -136,21 +136,31 @@ useful for things like ibuffer, which do not have evil keys by default
 #+BEGIN_SRC emacs-lisp
 
   (setq org-capture-templates
-        '(("t"
-           "Todo"
+        '(("t" "Tasks")
+          ("tl"
+           "Todo Local"
            entry
            (file+headline "~/data/org/todo.org" "Tasks")
            "* TODO %?")
-          ("a"
+          ("tg"
+           "Todo Global"
+           entry
+           (file+headline "/keybase/private/rythmyr/org/todo.org" "Inbox")
+           "* TODO %?")
+          ("e" "events")
+          ("ea"
            "Appointment"
            entry
            (file+headline "/keybase/private/rythmyr/org/events.org" "Appointments")
-           "* %?\n%^{Start Time}T\n.")
+           "* %?
+  %^{Start Time}T--%{End Time}T")
           ("j"
            "Journal"
            plain
            (file+datetree "/keybase/private/rythmyr/org/life.org")
-           "%U\n%?\n%i\n.")
+           "%U
+  %?
+  .")
           ))
 #+END_SRC
 
