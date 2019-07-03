@@ -64,12 +64,12 @@ use solarized dark theme, don't change fonts for headers
 #+BEGIN_SRC emacs-lisp
   (use-package evil-leader
     :ensure t
-    :config
-    (evil-leader/set-leader "<SPC>")
-    (global-evil-leader-mode)
     :init
     (setq evil-want-keybinding nil)
     (setq evil-want-integration t)
+    :config
+    (evil-leader/set-leader "<SPC>")
+    (global-evil-leader-mode)
   )
 #+END_SRC
 
@@ -103,42 +103,66 @@ useful for things like ibuffer, which do not have evil keys by default
     :after (evil org)
     :hook
     (org-mode . evil-org-mode)
+    :commands
+    (org-store-link
+     org-agenda
+     org-capture)
     :config
-    (evil-leader/set-key "ol" 'org-store-link
-                         "oa" 'org-agenda
-                         "oc" 'org-capture
-                         "ob" 'org-switchb)
-    (setq org-directory "~/data/org/"
-          org-default-notes-file (concat org-directory "notes.org")
-          org-cycle-separator-lines 1
-          org-M-RET-may-split-line nil
-          org-agenda-start-day "-1d"
-          org-agenda-start-on-weekday nil)
-    (setq org-capture-templates
-          '(("t"
-             "Todo"
-             entry
-             (file+headline "~/data/org/todo.org" "Tasks")
-             "* TODO %?")
-            ("a"
-             "Appointment"
-             entry
-             (file+headline "/keybase/private/rythmyr/org/events.org" "Appointments")
-             "* %?\n%^{Start Time}T\n.")
-            ("j"
-             "Journal"
-             plain
-             (file+datetree "/keybase/private/rythmyr/org/life.org")
-             "%U\n%?\n%i\n.")
-          ))
-    (setq org-agenda-files '("/keybase/private/rythmyr/org/events.org"
-                             "/keybase/private/rythmyr/org/todo.org"
-                             "~/data/org/todo.org"))
     (add-hook 'org-mode-hook #'(lambda ()
                                  (org-indent-mode)
                                  (visual-line-mode)))
   )
-  #+END_SRC
+#+END_SRC
+
+** Global org keybinds
+
+#+BEGIN_SRC emacs-lisp
+  (evil-leader/set-key "ol" 'org-store-link
+                       "oa" 'org-agenda
+                       "oc" 'org-capture)
+#+END_SRC
+
+** Agenda config
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-agenda-files '("/keybase/private/rythmyr/org/events.org"
+                           "/keybase/private/rythmyr/org/todo.org"
+                           "~/data/org/todo.org")
+        org-agenda-start-day "-1d"
+        org-agenda-start-on-weekday nil)
+#+END_SRC
+
+** Capture Templates
+
+#+BEGIN_SRC emacs-lisp
+
+  (setq org-capture-templates
+        '(("t"
+           "Todo"
+           entry
+           (file+headline "~/data/org/todo.org" "Tasks")
+           "* TODO %?")
+          ("a"
+           "Appointment"
+           entry
+           (file+headline "/keybase/private/rythmyr/org/events.org" "Appointments")
+           "* %?\n%^{Start Time}T\n.")
+          ("j"
+           "Journal"
+           plain
+           (file+datetree "/keybase/private/rythmyr/org/life.org")
+           "%U\n%?\n%i\n.")
+          ))
+#+END_SRC
+
+** General Config
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-directory "~/data/org/"
+        org-default-notes-file (concat org-directory "notes.org")
+        org-cycle-separator-lines 1
+        org-M-RET-may-split-line nil)
+#+END_SRC
 
 * Programming
 
