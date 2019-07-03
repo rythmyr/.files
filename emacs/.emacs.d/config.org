@@ -112,26 +112,24 @@ useful for things like ibuffer, which do not have evil keys by default
           org-default-notes-file (concat org-directory "notes.org")
           org-cycle-separator-lines 1
           org-M-RET-may-split-line nil
-          org-agenda-start-with-follow-mode t
           org-agenda-start-day "-1d"
           org-agenda-start-on-weekday nil)
     (setq org-capture-templates
-          '(
-            ("g"
-             "General Todo"
+          '(("t"
+             "Todo"
              entry
-             (file+headline "/keybase/private/rythmyr/org/todo.org" "Tasks")
-             "* TODO %?\n  %i\n  %a")
+             (file+headline "~/data/org/todo.org" "Tasks")
+             "* TODO %?")
             ("a"
              "Appointment"
              entry
              (file+headline "/keybase/private/rythmyr/org/events.org" "Appointments")
-             "* %?\nSCHEDULED: %^{Start Time}T")
+             "* %?\n%^{Start Time}T\n.")
             ("j"
              "Journal"
-             entry
+             plain
              (file+datetree "/keybase/private/rythmyr/org/life.org")
-             "* %?\nEntered on %U\n  %i\n  %a")
+             "%U\n%?\n%i\n.")
           ))
     (setq org-agenda-files '("/keybase/private/rythmyr/org/events.org"
                              "/keybase/private/rythmyr/org/todo.org"
