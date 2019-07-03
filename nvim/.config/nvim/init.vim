@@ -76,7 +76,7 @@ hi Search ctermfg=13
 
 nnoremap <space> <nop>
 let mapleader = " "
-nnoremap <leader>ce :tabnew $MYVIMRC<cr>
+nnoremap <leader>ec :tabnew $MYVIMRC<cr>
 nnoremap <leader>cr :source $MYVIMRC<cr>
 
 " move lines up and down
@@ -94,8 +94,6 @@ vnoremap > >gv
 " complete with tab instead of <c-n> or <c-p>
 inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
-
-nnoremap <space> za
 
 "=================="
 "universal commands"
@@ -125,17 +123,16 @@ let g:syntastic_always_populate_loc_list = 1
 "typescript stuff
 fun! s:setTypescriptOptions()
     imap <buffer> <C-Space> <c-x><c-o>
-    let maplocalleader = "<space>"
-    nnoremap <buffer> <localleader>lu :TSRefs<cr>
-    nnoremap <buffer> <localleader>ld :TSDef<cr>
-    nnoremap <buffer> <localleader>lt :TSTypeDef<cr>
-    nnoremap <buffer> <localleader>lr :TSRename <C-r><C-w>
-    nnoremap <buffer> <localleader>lp :TSDefPreview<cr>
-    nnoremap <buffer> <localleader>le :TSGetDiagnostics<cr>
-    nnoremap <buffer> <localleader>lf :TSGetCodeFix<cr>
-    nnoremap <buffer> <localleader>l/ I// <c-\><c-n>
-    nnoremap <buffer> <localleader>l? :s/\/\/ \?//<cr>:noh<cr>
-    nnoremap <buffer> <localleader>lz vi{zf
+    nnoremap <buffer> <leader>lu :TSRefs<cr>
+    nnoremap <buffer> <leader>ld :TSDef<cr>
+    nnoremap <buffer> <leader>lt :TSTypeDef<cr>
+    nnoremap <buffer> <leader>lr :TSRename <C-r><C-w>
+    nnoremap <buffer> <leader>lp :TSDefPreview<cr>
+    nnoremap <buffer> <leader>le :TSGetErrorFull<cr>
+    nnoremap <buffer> <leader>lf :TSGetCodeFix<cr>
+    nnoremap <buffer> <leader>l/ I// <c-\><c-n>
+    nnoremap <buffer> <leader>l? :s/\/\/ \?//<cr>:noh<cr>
+    nnoremap <buffer> <leader>lz vi{zf
     ab <buffer> clog console.log
     ab <buffer> cerr console.error
 endfun
@@ -151,9 +148,8 @@ command! SetTypescriptOptions call s:setTypescriptOptions()
 
 "html stuff
 fun! s:setHtmlOptions()
-    let maplocalleader = "\\"
-    nnoremap <buffer> <localleader>/ I<!--<c-\><c-n>A--><c-\><c-n>
-    nnoremap <buffer> <localleader>? :s/<!--\\|-->//g<cr>:noh<cr>
+    nnoremap <buffer> <leader>/ I<!--<c-\><c-n>A--><c-\><c-n>
+    nnoremap <buffer> <leader>? :s/<!--\\|-->//g<cr>:noh<cr>
 endfun
 augroup html
     autocmd!
@@ -165,7 +161,6 @@ let g:syntastic_html_checkers = ['']
 
 "json stuff
 fun! s:setJsonOptions()
-    let maplocalleader = "\\"
     setlocal foldmethod=syntax
 endfun
 augroup json
