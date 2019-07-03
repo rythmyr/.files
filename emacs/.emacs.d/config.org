@@ -103,14 +103,13 @@ useful for things like ibuffer, which do not have evil keys by default
     :after (evil org)
     :hook
     (org-mode . evil-org-mode)
+    (org-mode . (lambda ()
+                  (org-indent-mode)
+                  (visual-line-mode)))
     :commands
     (org-store-link
      org-agenda
      org-capture)
-    :config
-    (add-hook 'org-mode-hook #'(lambda ()
-                                 (org-indent-mode)
-                                 (visual-line-mode)))
   )
 #+END_SRC
 
