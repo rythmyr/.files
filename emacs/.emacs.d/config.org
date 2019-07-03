@@ -269,12 +269,8 @@ useful for things like ibuffer, which do not have evil keys by default
 #+BEGIN_SRC emacs-lisp
   (defun ryth/edit-todos ()
     (interactive)
-    (find-file "/keybase/private/rythmyr/org/todo.org"))
-  (evil-leader/set-key "et" 'ryth/edit-todos)
-  (defun ryth/edit-local-todos ()
-    (interactive)
     (find-file "~/data/org/todo.org"))
-  (evil-leader/set-key "elt" 'ryth/edit-local-todos)
+  (evil-leader/set-key "et" 'ryth/edit-todos)
 #+END_SRC
 
 *** notes
@@ -282,12 +278,8 @@ useful for things like ibuffer, which do not have evil keys by default
 #+BEGIN_SRC emacs-lisp
   (defun ryth/edit-notes ()
     (interactive)
-    (find-file "/keybase/private/rythmyr/org/notes.org"))
-  (evil-leader/set-key "en" 'ryth/edit-notes)
-  (defun ryth/edit-local-notes ()
-    (interactive)
     (find-file "~/data/org/notes.org"))
-  (evil-leader/set-key "eln" 'ryth/edit-local-notes)
+  (evil-leader/set-key "en" 'ryth/edit-notes)
 #+END_SRC
 
 ** Reload config
