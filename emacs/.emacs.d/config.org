@@ -283,6 +283,15 @@ useful for things like ibuffer, which do not have evil keys by default
   (evil-leader/set-key "et" 'ryth/edit-todos)
 #+END_SRC
 
+*** inbox
+
+#+BEGIN_SRC emacs-lisp
+  (defun ryth/edit-inbox ()
+    (interactive)
+    (find-file "/keybase/private/rythmyr/org/todo.org"))
+  (evil-leader/set-key "ei" 'ryth/edit-inbox)
+#+END_SRC
+
 *** notes
 
 #+BEGIN_SRC emacs-lisp
