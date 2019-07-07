@@ -19,3 +19,7 @@ function dot() {
 function kb() {
     cd $KEYBASE_HOME
 }
+
+function org() {
+    cd ~/data/org
+}
