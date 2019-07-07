@@ -126,7 +126,8 @@ useful for things like ibuffer, which do not have evil keys by default
 #+BEGIN_SRC emacs-lisp
   (setq org-agenda-files '("/keybase/private/rythmyr/org/events.org"
                            "/keybase/private/rythmyr/org/todo.org"
-                           "~/data/org/todo.org")
+                           "~/data/org/todo.org"
+                           "~/data/org/events.org")
         org-agenda-start-day "-1d"
         org-agenda-start-on-weekday nil)
 #+END_SRC
@@ -170,7 +171,9 @@ useful for things like ibuffer, which do not have evil keys by default
   (setq org-directory "~/data/org/"
         org-default-notes-file (concat org-directory "notes.org")
         org-cycle-separator-lines 1
-        org-M-RET-may-split-line nil)
+        org-M-RET-may-split-line nil
+        org-log-into-drawer t
+        org-agenda-todo-ignore-scheduled t)
 #+END_SRC
 
 * Programming
