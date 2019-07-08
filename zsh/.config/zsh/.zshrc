@@ -16,6 +16,7 @@ setopt nomatch
 setopt promptsubst
 setopt histignorespace
 setopt histignorealldups
+setopt globdots
 
 bindkey -v
 bindkey "^?" backward-delete-char
