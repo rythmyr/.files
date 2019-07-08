@@ -205,7 +205,7 @@ useful for things like ibuffer, which do not have evil keys by default
     :ensure t
     :config
     (projectile-mode +1)
-    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+    (evil-leader/set-key "p" 'projectile-command-map)
     )
 #+END_SRC
 
@@ -252,12 +252,12 @@ useful for things like ibuffer, which do not have evil keys by default
            )
     :config
     (setq tide-tsserver-executable "node_modules/typescript/bin/tsserver")
-    (evil-leader/set-key-for-mode 'typescript-mode "d" 'tide-jump-to-definition
-                                                   "u" 'tide-references
-                                                   "r" 'tide-rename-symbol
-                                                   "f" 'tide-fix
-                                                   "o" 'tide-organize-imports
-                                                   "e" 'tide-error-at-point))
+    (evil-leader/set-key-for-mode 'typescript-mode "ld" 'tide-jump-to-definition
+                                                   "lu" 'tide-references
+                                                   "lr" 'tide-rename-symbol
+                                                   "lf" 'tide-fix
+                                                   "lo" 'tide-organize-imports
+                                                   "le" 'tide-error-at-point))
 #+END_SRC
 
 * My functions/keybinds
