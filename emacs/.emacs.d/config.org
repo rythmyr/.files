@@ -82,7 +82,6 @@ use solarized dark theme, don't change fonts for headers
     :config
     (evil-mode t)
   )
-  (setq evil-org-retain-visual-state-on-shift t)
 #+END_SRC
 
 ** evil collection
@@ -98,19 +97,23 @@ useful for things like ibuffer, which do not have evil keys by default
 * Org mode
 
 #+BEGIN_SRC emacs-lisp
+  (use-package org
+    :ensure t
+    :commands
+    (org-store-link
+     org-agenda
+     org-capture)
+    :hook
+    (org-mode . org-indent-mode)
+    )
+
   (use-package evil-org
     :ensure t
     :after (evil org)
     :hook
     (org-mode . evil-org-mode)
-    (org-mode . (lambda ()
-                  (org-indent-mode)
-                  (visual-line-mode)))
-    :commands
-    (org-store-link
-     org-agenda
-     org-capture)
-  )
+    :config
+    (setq evil-org-retain-visual-state-on-shift t))
 #+END_SRC
 
 ** Global org keybinds
