@@ -95,6 +95,9 @@ vnoremap > >gv
 inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
+" hilight last pasted content
+nnoremap gp `[v`]
+
 "=================="
 "universal commands"
 "=================="
