@@ -17,9 +17,9 @@
 [alias]
     a = add -u
     aa = add -A
-    abc = "!git a && git b \"$1\" && git cm"
     amend = commit --amend -v
     b = checkout -b
+    bap = "!git a && git b \"$1\" && git cm && git p && echo -n"
     ce = "config --global -e"
     cm = commit -v
     co = checkout
