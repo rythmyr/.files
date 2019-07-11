@@ -97,6 +97,8 @@ useful for things like ibuffer, which do not have evil keys by default
 
 * Org mode
 
+** General Config
+
 #+BEGIN_SRC emacs-lisp
   (use-package org
     :ensure t
@@ -106,6 +108,13 @@ useful for things like ibuffer, which do not have evil keys by default
      org-capture)
     :hook
     (org-mode . org-indent-mode)
+    :config
+    (setq org-directory "~/data/org/"
+          org-default-notes-file (concat org-directory "notes.org")
+          org-cycle-separator-lines 1
+          org-M-RET-may-split-line nil
+          org-log-into-drawer t
+          org-agenda-todo-ignore-scheduled t)
     )
 
   (use-package evil-org
@@ -164,18 +173,12 @@ useful for things like ibuffer, which do not have evil keys by default
            "%U
   %?
   .")
+          ("c"
+           "Config"
+           entry
+           (file+headline "~/data/org/configTodo.org" "Misc")
+           "* TODO %?")
           ))
-#+END_SRC
-
-** General Config
-
-#+BEGIN_SRC emacs-lisp
-  (setq org-directory "~/data/org/"
-        org-default-notes-file (concat org-directory "notes.org")
-        org-cycle-separator-lines 1
-        org-M-RET-may-split-line nil
-        org-log-into-drawer t
-        org-agenda-todo-ignore-scheduled t)
 #+END_SRC
 
 * Programming
