@@ -136,8 +136,7 @@ useful for things like ibuffer, which do not have evil keys by default
 ** Agenda config
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-agenda-files '("/keybase/private/rythmyr/org/todo.org"
-                           "~/data/org/todo.org"
+  (setq org-agenda-files '("~/data/org/todo.org"
                            "~/data/org/events.org"
                            "~/data/org/configTodo.org")
         org-agenda-start-day "-1d"
