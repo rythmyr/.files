@@ -113,7 +113,6 @@ useful for things like ibuffer, which do not have evil keys by default
           org-default-notes-file (concat org-directory "notes.org")
           org-cycle-separator-lines 1
           org-M-RET-may-split-line nil
-          org-log-into-drawer t
           org-agenda-todo-ignore-scheduled t)
     )
 
