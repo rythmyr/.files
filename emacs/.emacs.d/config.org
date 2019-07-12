@@ -112,8 +112,7 @@ useful for things like ibuffer, which do not have evil keys by default
     (setq org-directory "~/data/org/"
           org-default-notes-file (concat org-directory "notes.org")
           org-cycle-separator-lines 1
-          org-M-RET-may-split-line nil
-          org-agenda-todo-ignore-scheduled t)
+          org-M-RET-may-split-line nil)
     )
 
   (use-package evil-org
@@ -140,7 +139,8 @@ useful for things like ibuffer, which do not have evil keys by default
                            "~/data/org/events.org"
                            "~/data/org/configTodo.org")
         org-agenda-start-day "-1d"
-        org-agenda-start-on-weekday nil)
+        org-agenda-start-on-weekday nil
+        org-agenda-todo-ignore-scheduled t)
 #+END_SRC
 
 ** Capture Templates
