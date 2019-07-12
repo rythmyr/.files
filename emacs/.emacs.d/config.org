@@ -135,9 +135,7 @@ useful for things like ibuffer, which do not have evil keys by default
 ** Agenda config
 
 #+BEGIN_SRC emacs-lisp
-  (setq org-agenda-files '("~/data/org/todo.org"
-                           "~/data/org/events.org"
-                           "~/data/org/configTodo.org")
+  (setq org-agenda-files '("~/data/org")
         org-agenda-start-day "-1d"
         org-agenda-start-on-weekday nil
         org-agenda-todo-ignore-scheduled t)
@@ -177,6 +175,15 @@ useful for things like ibuffer, which do not have evil keys by default
            (file+headline "~/data/org/configTodo.org" "Misc")
            "* TODO %?")
           ))
+#+END_SRC
+
+** Refile Targets
+
+#+BEGIN_SRC emacs-lisp
+  (setq org-refile-targets '((org-agenda-files :maxlevel . 2))
+        org-refile-use-outline-path 'file
+        org-refile-allow-creating-parent-nodes 'confirm
+        org-outline-path-complete-in-steps t)
 #+END_SRC
 
 * Programming
