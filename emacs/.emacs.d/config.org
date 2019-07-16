@@ -164,9 +164,9 @@ useful for things like ibuffer, which do not have evil keys by default
   %^{Start Time}T")
           ("j"
            "Journal"
-           plain
+           entry
            (file+datetree "/keybase/private/rythmyr/org/life.org")
-           "%U
+           "* %U
   %?
   .")
           ("c"
