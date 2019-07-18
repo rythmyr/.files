@@ -44,7 +44,9 @@ use solarized dark theme, don't change fonts for headers
 #+END_SRC
 ** Other settings
 #+BEGIN_SRC emacs-lisp
-  (setq-default display-line-numbers 'relative)
+  (setq display-line-numbers-type 'relative)
+  (setq-default display-line-numbers-width 5)
+  (global-display-line-numbers-mode 1)
   (menu-bar-mode -1)
   (toggle-scroll-bar -1)
   (tool-bar-mode -1)
