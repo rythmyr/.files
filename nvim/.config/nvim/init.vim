@@ -79,6 +79,10 @@ let mapleader = " "
 nnoremap <leader>ec :tabnew $MYVIMRC<cr>
 nnoremap <leader>cr :source $MYVIMRC<cr>
 
+" Sometimes I don't want to reach all the way up to escape
+inoremap jj <esc>
+inoremap <esc> <nop>
+
 " move lines up and down
 noremap _ :normal ddkP<cr>
 noremap - :normal ddp<cr>
