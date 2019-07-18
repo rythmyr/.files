@@ -1,7 +1,6 @@
 #+TITLE: Emacs Config
 
 * Sensible defaults
-
 Be sure and clone [[https://github.com/hrs/sensible-defaults.el][sensible-defaults.el]] into ~/.emacs.d/lib
 
 =mkdir -p ~/.emacs.d/lib/ && cd ~/.emacs.d/lib/ && git clone https://github.com/hrs/sensible-defaults.el=
@@ -31,11 +30,8 @@ I use some of my own custom defaults as well
   (setq custom-file "~/.emacs.d/custom.el")
   (load custom-file)
 #+END_SRC
-
 * UI settings
-
 ** Theme
-
 use solarized dark theme, don't change fonts for headers
 
 #+BEGIN_SRC emacs-lisp
@@ -46,9 +42,7 @@ use solarized dark theme, don't change fonts for headers
           solarized-scale-org-headlines nil)
     (load-theme 'solarized-dark t))
 #+END_SRC
-
 ** Other settings
-
 #+BEGIN_SRC emacs-lisp
   (setq-default display-line-numbers 'relative)
   (menu-bar-mode -1)
@@ -57,11 +51,8 @@ use solarized dark theme, don't change fonts for headers
   (add-to-list 'default-frame-alist '(fullscreen . maximized))
   (setq-default global-visual-line-mode t)
 #+END_SRC
-
 * Evil
-
 ** evil leader
-
 #+BEGIN_SRC emacs-lisp
   (use-package evil-leader
     :ensure t
@@ -73,9 +64,7 @@ use solarized dark theme, don't change fonts for headers
     (global-evil-leader-mode)
   )
 #+END_SRC
-
 ** base evil
-
 #+BEGIN_SRC emacs-lisp
   (use-package evil
     :ensure t
@@ -84,9 +73,7 @@ use solarized dark theme, don't change fonts for headers
     (evil-mode t)
   )
 #+END_SRC
-
 ** evil collection
-
 useful for things like ibuffer, which do not have evil keys by default
 
 #+BEGIN_SRC emacs-lisp
@@ -94,11 +81,8 @@ useful for things like ibuffer, which do not have evil keys by default
     :ensure t
     :after (evil))
 #+END_SRC
-
 * Org mode
-
 ** General Config
-
 #+BEGIN_SRC emacs-lisp
   (use-package org
     :ensure t
@@ -123,28 +107,21 @@ useful for things like ibuffer, which do not have evil keys by default
     :config
     (setq evil-org-retain-visual-state-on-shift t))
 #+END_SRC
-
 ** Global org keybinds
-
 #+BEGIN_SRC emacs-lisp
   (evil-leader/set-key "ol" 'org-store-link
                        "oa" 'org-agenda
                        "oc" 'org-capture)
 #+END_SRC
-
 ** Agenda config
-
 #+BEGIN_SRC emacs-lisp
   (setq org-agenda-files '("~/data/org")
         org-agenda-start-day "-1d"
         org-agenda-start-on-weekday nil
         org-agenda-todo-ignore-scheduled t)
 #+END_SRC
-
 ** Capture Templates
-
 #+BEGIN_SRC emacs-lisp
-
   (setq org-capture-templates
         '(("l"
            "Todo Local"
@@ -176,40 +153,30 @@ useful for things like ibuffer, which do not have evil keys by default
            "* TODO %?")
           ))
 #+END_SRC
-
 ** Refile Targets
-
 #+BEGIN_SRC emacs-lisp
   (setq org-refile-targets '((org-agenda-files :maxlevel . 2))
         org-refile-use-outline-path 'file
         org-refile-allow-creating-parent-nodes 'confirm
         org-outline-path-complete-in-steps t)
 #+END_SRC
-
 * Programming
-
 ** Overall
-
 *** editorconfig
-
 #+BEGIN_SRC emacs-lisp
   (use-package editorconfig
     :ensure t
     :config
     (editorconfig-mode 1))
 #+END_SRC
-
 *** company, for completions
-
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :ensure t
     :config
     (setq company-idle-delay 250))
 #+END_SRC
-
 *** projectile, for keeping projects separate
-
 #+BEGIN_SRC emacs-lisp
   (use-package projectile
     :ensure t
@@ -218,9 +185,7 @@ useful for things like ibuffer, which do not have evil keys by default
     (evil-leader/set-key "p" 'projectile-command-map)
     )
 #+END_SRC
-
 *** magit, for git integration
-
 #+BEGIN_SRC emacs-lisp
   (use-package magit
     :ensure t
@@ -235,9 +200,7 @@ useful for things like ibuffer, which do not have evil keys by default
     :ensure t
     :after (evil magit))
 #+END_SRC
-
 ** Unity 3d (C Sharp)
-
 #+BEGIN_SRC emacs-lisp
   (use-package omnisharp
     :ensure t
@@ -251,9 +214,7 @@ useful for things like ibuffer, which do not have evil keys by default
                                                   "i" 'omnisharp-fix-code-issue-at-point
                                                   "r" 'omnisharp-rename))
 #+END_SRC
-
 ** Typescript
-
 #+BEGIN_SRC emacs-lisp
   (use-package tide
     :ensure t
@@ -273,13 +234,9 @@ useful for things like ibuffer, which do not have evil keys by default
                                                    "lo" 'tide-organize-imports
                                                    "le" 'tide-error-at-point))
 #+END_SRC
-
 * My functions/keybinds
-
 ** Edit files
-
 *** config
-
 #+BEGIN_SRC emacs-lisp
   (defun ryth/edit-config ()
     (interactive)
@@ -290,18 +247,14 @@ useful for things like ibuffer, which do not have evil keys by default
     (find-file "~/.emacs.d/local.org"))
   (evil-leader/set-key "elc" 'ryth/edit-local-config)
 #+END_SRC
-
 *** todos
-
 #+BEGIN_SRC emacs-lisp
   (defun ryth/edit-todos ()
     (interactive)
     (find-file "~/data/org/todo.org"))
   (evil-leader/set-key "et" 'ryth/edit-todos)
 #+END_SRC
-
 *** inbox
-
 #+BEGIN_SRC emacs-lisp
   (defun ryth/edit-inbox ()
     (interactive)
@@ -312,16 +265,13 @@ useful for things like ibuffer, which do not have evil keys by default
     (find-file "/keybase/private/rythmyr/org/todo.org"))
   (evil-leader/set-key "eli" 'ryth/edit-local-inbox)
 #+END_SRC
-
 *** notes
-
 #+BEGIN_SRC emacs-lisp
   (defun ryth/edit-notes ()
     (interactive)
     (find-file "~/data/org/notes.org"))
   (evil-leader/set-key "en" 'ryth/edit-notes)
 #+END_SRC
-
 *** journal
 #+BEGIN_SRC emacs-lisp
   (defun ryth/edit-journal ()
@@ -330,18 +280,14 @@ useful for things like ibuffer, which do not have evil keys by default
   (evil-leader/set-key "ej" 'ryth/edit-journal)
 #+END_SRC
 ** Reload config
-
 #+BEGIN_SRC emacs-lisp
   (defun ryth/reload-config ()
     (interactive)
     (load user-init-file))
   (evil-leader/set-key "cr" 'ryth/reload-config)
 #+END_SRC
-
 * Misc
-
 ** ido
-
 for better buffer/file switching (C-x b and C-x C-f)
 
 #+BEGIN_SRC emacs-lisp
@@ -350,9 +296,7 @@ for better buffer/file switching (C-x b and C-x C-f)
   (ido-mode 1)
   (evil-leader/set-key "gf" 'ido-find-file)
 #+END_SRC
-
 ** ibuffer
-
 for a better buffer list
 
 #+BEGIN_SRC emacs-lisp
