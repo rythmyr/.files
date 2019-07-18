@@ -49,7 +49,7 @@ set hidden " can move away from buffer without saving first
 set number " shows line number on current line (or all lines if relativenumber not set
 set relativenumber " shows line numbers relative to current line
 set numberwidth=5 " set the number of columns of the line numbers to 5 (4 digits + space)
-set so=7 " leave at least 7 lines after cursor while scrolling down/above while scrolling up
+set so=7 " leave at least 7 lines before/after cursor while scrolling up/down
 set wildmenu " menu while tab completing commands
 set noea " equalalways, no prevents windows from resizing when you close help/preview
 set ar " autoread, if file is changed outside of vim and you switch to that buffer, automatically reload it
@@ -59,15 +59,22 @@ set cursorcolumn " hilight the column with the cursor on it
 set sw=4 " shift width, when tab is pressed, move in 4 spaces
 set et " expandtab, use spaces instead of tabs when tab is pressed
 set ts=4 " tabstop, display tab characters as 4 spaces
-set path=,,.,** " for tab-completing filenames in vim commands, use recursive in current directory. forget /usr/includes. we don't need it.
-set incsearch
-set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,space:·,trail:·,eol:↲
+set incsearch " show matches as I search instead of after I press return
+set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,space:·,trail:·,eol:↲ " Used for showing whitespace, set to characters I don't type
 set list " show invisible characters
-set updatetime=500
-set signcolumn=yes
+set updatetime=500 " How long to wait after I type a character in normal mode to fire events
+set signcolumn=yes " always show columns for git gutter, syntax errors, etc
 set ignorecase " ignore case sensitivity in search by default
 set smartcase " unless there's a capital letter
-set shada+=n~/.local/nvim/viminfo "don't put stuff in the home directory
+set shada+=n~/.local/nvim/viminfo " don't put stuff in the home directory
+set timeoutlen=250 " 250 ms max between keypresses in a keybind
+" for tab-completing filenames in vim commands, use recursive in current directory. forget /usr/includes. we don't need it.
+" empty string = dir vim was opened in
+" dot = directory current file is in
+" ** = recursive, relative to dir vim was opened in
+set path=,,.,**
+
+" use purple as the background for showing search matches
 hi Search ctermfg=13
 
 "=================="
