@@ -109,8 +109,7 @@ command! Term split<bar>resize 20<bar>normal <c-w>J:term<cr>
 "npm-based projects"
 "=================="
 if filereadable("package.json")
-  set path=src/**,.,, " everything we care about usually is in src/ for npm projects
-
+    set path=src/**,.,, " everything we care about usually is in src/ for npm projects
 endif
 
 "==============="
