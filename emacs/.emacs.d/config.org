@@ -145,13 +145,7 @@ useful for things like ibuffer, which do not have evil keys by default
            (file+datetree "/keybase/private/rythmyr/org/life.org")
            "* %U
   %?
-  .")
-          ("c"
-           "Config"
-           entry
-           (file+headline "~/data/org/configTodo.org" "Misc")
-           "* TODO %?")
-          ))
+  .")))
 #+END_SRC
 ** Refile Targets
 #+BEGIN_SRC emacs-lisp
