@@ -307,6 +307,10 @@ useful for things like ibuffer, which do not have evil keys by default
     (interactive)
     (find-file "/keybase/private/rythmyr/org/todo.org"))
   (evil-leader/set-key "ei" 'ryth/edit-inbox)
+  (defun ryth/edit-local-inbox ()
+    (interactive)
+    (find-file "/keybase/private/rythmyr/org/todo.org"))
+  (evil-leader/set-key "eli" 'ryth/edit-local-inbox)
 #+END_SRC
 
 *** notes
@@ -318,6 +322,13 @@ useful for things like ibuffer, which do not have evil keys by default
   (evil-leader/set-key "en" 'ryth/edit-notes)
 #+END_SRC
 
+*** journal
+#+BEGIN_SRC emacs-lisp
+  (defun ryth/edit-journal ()
+    (interactive)
+    (find-file "/keybase/private/rythmyr/org/life.org"))
+  (evil-leader/set-key "ej" 'ryth/edit-journal)
+#+END_SRC
 ** Reload config
 
 #+BEGIN_SRC emacs-lisp
