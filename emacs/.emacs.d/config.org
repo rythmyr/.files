@@ -125,12 +125,7 @@ useful for things like ibuffer, which do not have evil keys by default
 ** Capture Templates
 #+BEGIN_SRC emacs-lisp
   (setq org-capture-templates
-        '(("l"
-           "Todo Local"
-           entry
-           (file+headline "~/data/org/todo.org" "Tasks")
-           "* TODO %?")
-          ("i"
+        '(("i"
            "Inbox"
            entry
            (file+headline "/keybase/private/rythmyr/org/todo.org" "Inbox")
