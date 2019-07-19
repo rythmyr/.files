@@ -5,7 +5,7 @@ local INSTANCE=${1:-NOTES}
 INSTANCE=$INSTANCE:u
 
 local function start_emacs() {
-    emacsclient -c -s notes --alternate-editor="" -e "(set-frame-name '\"$INSTANCE\")" -e "(find-file \"/keybase/private/rythmyr/org/$INSTANCE:l.org\")" &
+    emacsclient -c --alternate-editor="" -e "(set-frame-name '\"$INSTANCE\")" &
 }
 
 local function toggle_emacs() {
