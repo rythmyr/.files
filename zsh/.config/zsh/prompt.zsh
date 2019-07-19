@@ -1,5 +1,5 @@
-#!/bin/zsh
-echo "sourcing prompt.zsh"
+#!/usr/bin/env zsh
+[ -n "$RYTH_ZSH_DEBUG" ] && echo "sourcing prompt.zsh"
 
 setopt promptsubst
 

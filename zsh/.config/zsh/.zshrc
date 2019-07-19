@@ -1,6 +1,4 @@
-
-
-echo "sourcing .zshrc"
+[ -n "$RYTH_ZSH_DEBUG" ] && echo "sourcing .zshrc"
 [ -s "$HOME/.config/zsh/environment.zsh" ] && \. "$HOME/.config/zsh/environment.zsh"
 [ -s "$HOME/.config/zsh/completions.zsh" ] && \. "$HOME/.config/zsh/completions.zsh"
 [ -s "$HOME/.config/zsh/alias.zsh" ] && \. "$HOME/.config/zsh/alias.zsh"
@@ -24,4 +22,4 @@ bindkey "^?" backward-delete-char
 [ -s "$HOME/.config/zsh/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && \. "$HOME/.config/zsh/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 
 
-neofetch
+[ -z "$RYTH_ZSH_NOFETCH" ] && neofetch

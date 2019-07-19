@@ -1,6 +1,6 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
-echo "sourcing completions.zsh"
+[ -n "$RYTH_ZSH_DEBUG" ] && echo "sourcing completions.zsh"
 
 zstyle ':completion:*' expand suffix
 zstyle ':completion:*' file-sort name

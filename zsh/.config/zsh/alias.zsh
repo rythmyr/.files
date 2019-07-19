@@ -1,5 +1,5 @@
-#!/bin/zsh
-echo "sourcing alias.zsh"
+#!/usr/bin/env zsh
+[ -n "$RYTH_ZSH_DEBUG" ] && echo "sourcing alias.zsh"
 
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
