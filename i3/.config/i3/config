@@ -126,40 +126,40 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
 
-        bindsym Shift+h resize shrink width 1 px or 1 ppt
-        bindsym Shift+j resize grow height 1 px or 1 ppt
-        bindsym Shift+k resize shrink height 1 px or 1 ppt
-        bindsym Shift+l resize grow width 1 px or 1 ppt
+    bindsym Shift+h resize shrink width 1 px or 1 ppt
+    bindsym Shift+j resize grow height 1 px or 1 ppt
+    bindsym Shift+k resize shrink height 1 px or 1 ppt
+    bindsym Shift+l resize grow width 1 px or 1 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        bindsym Shift+Left resize shrink width 1 px or 1 ppt
-        bindsym Shift+Down resize grow height 1 px or 1 ppt
-        bindsym Shift+Up resize shrink height 1 px or 1 ppt
-        bindsym Shift+Right resize grow width 1 px or 1 ppt
+    bindsym Shift+Left resize shrink width 1 px or 1 ppt
+    bindsym Shift+Down resize grow height 1 px or 1 ppt
+    bindsym Shift+Up resize shrink height 1 px or 1 ppt
+    bindsym Shift+Right resize grow width 1 px or 1 ppt
 
-        # just in case, here's a reset (c for "center")
-        bindsym c resize set 90 ppt 90 ppt, move position center
+    # just in case, here's a reset (c for "center")
+    bindsym c resize set 90 ppt 90 ppt, move position center
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+    # back to normal: Enter or Escape or $mod+r
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
 }
 
 #===================#
@@ -191,9 +191,9 @@ set $magenta #d33682
 set $violet #6c71c4
 set $cyan #2aa198
 
-default_border normal 1
+default_border pixel 4
 # class                 border  backgr. text    indicator child_border
-client.focused          $base2  $base2  $base02 $cyan     $violet
+client.focused          $base2  $base2  $base02 $green    $violet
 client.focused_inactive $base01 $base01 $base1  $base00   $base01
 client.unfocused        $base02 $base02 $base0  $base02   $base02
 client.urgent           $orange $red    $base2  $orange   $orange
@@ -223,22 +223,31 @@ bar {
         separator $magenta
 
         # class            border   background  text
-        focused_workspace  $base01  $violet     $base03
-        active_workspace   $base01  $base03     $base1
+        focused_workspace  $base03  $base1      $base02
+        active_workspace   $base01  $base03     $base3
         inactive_workspace $base01  $base03     $base1
-        urgent_workspace   $orange  $red        $base2
-        binding_mode       $base01  $violet     $base3
+        urgent_workspace   $orange  $red        $base02
+        binding_mode       $base01  $yellow     $base02
     }
 }
+
+#========#
+## Gaps ##
+#========#
+
+gaps inner 10
+gaps outer 15
 
 #================#
 ## Custom Binds ##
 #================#
 
+# Screenshots
 bindsym --release ctrl+Print exec --no-startup-id ~/scripts/screenshot.sh
 bindsym --release Print exec --no-startup-id ~/scripts/fullscreenshot.sh
-bindsym $mod+b exec --no-startup-id ~/scripts/lock.zsh
 
+# Screen locking
+bindsym $mod+b exec --no-startup-id ~/scripts/lock.zsh
 
 # Audio and Music
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2% #increase sound volume
@@ -260,7 +269,6 @@ bindsym $mod+n [title="^NOTES$" class="^Emacs$"] exec ~/scripts/emacsnotes.zsh N
 bindsym $mod+t [title="^TODO$" class="^Emacs$"] exec ~/scripts/emacsnotes.zsh TODO
 for_window [title="^NOTES$" class="^Emacs$"] mark notes, move scratchpad, scratchpad show, $resize
 for_window [title="^TODO$" class="^Emacs$"] mark todo, move scratchpad, scratchpad show, $resize
- 
 
 bindsym $mod+Shift+z move scratchpad
 bindsym $mod+z scratchpad show, $resize
