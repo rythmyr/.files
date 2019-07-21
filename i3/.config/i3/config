@@ -255,9 +255,9 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 #Scratchpad
 set $resize resize set 90 ppt 90 ppt, move position center
@@ -265,8 +265,8 @@ set $resize resize set 90 ppt 90 ppt, move position center
 for_window [class="^Spotify$"] move scratchpad
 bindsym $mod+s [class="^Spotify$"] scratchpad show, $resize
 
-bindsym $mod+n [title="^NOTES$" class="^Emacs$"] exec ~/scripts/emacsnotes.zsh NOTES
-bindsym $mod+t [title="^TODO$" class="^Emacs$"] exec ~/scripts/emacsnotes.zsh TODO
+bindsym $mod+n [title="^NOTES$" class="^Emacs$"] exec --no-startup-id ~/scripts/emacsnotes.zsh NOTES
+bindsym $mod+t [title="^TODO$" class="^Emacs$"] exec --no-startup-id ~/scripts/emacsnotes.zsh TODO
 for_window [title="^NOTES$" class="^Emacs$"] mark notes, move scratchpad, scratchpad show, $resize
 for_window [title="^TODO$" class="^Emacs$"] mark todo, move scratchpad, scratchpad show, $resize
 
