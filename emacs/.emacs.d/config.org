@@ -121,6 +121,7 @@ useful for things like ibuffer, which do not have evil keys by default
         org-agenda-start-day "-1d"
         org-agenda-start-on-weekday nil
         org-agenda-todo-ignore-scheduled t)
+  (add-hook 'org-agenda-mode-hook 'ryth/disable-line-numbers)
 #+END_SRC
 ** Capture Templates
 #+BEGIN_SRC emacs-lisp
@@ -276,6 +277,13 @@ useful for things like ibuffer, which do not have evil keys by default
     (interactive)
     (load user-init-file))
   (evil-leader/set-key "cr" 'ryth/reload-config)
+#+END_SRC
+** Mode shortcuts
+*** line numbers
+#+BEGIN_SRC emacs-lisp
+  (defun ryth/disable-line-numbers ()
+    (interactive)
+    (display-line-numbers-mode -1))
 #+END_SRC
 * Misc
 ** ido
