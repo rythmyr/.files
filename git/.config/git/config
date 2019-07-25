@@ -23,11 +23,15 @@
     ce = "config --global -e"
     cm = commit -v
     co = checkout
+    dh = diff HEAD --
+    dm = diff origin/master --
+    du = diff @{u} --
     exec = "!exec "
     f = fetch --tags --all --prune --force
     l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     lce = "config -e"
-    mom = merge origin/master
+    mm = merge origin/master
+    mu = merge @{u}
     p = push -u origin HEAD
     pf = push -u origin HEAD --force-with-lease
     s = status --short
