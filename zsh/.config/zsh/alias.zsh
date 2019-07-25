@@ -7,16 +7,6 @@ alias bell='echo -e "\a"'
 alias e="$EDITOR ~/.config/zsh/.zshrc"
 alias s=". ~/.config/zsh/.zshrc"
 
-#go to my dotfiles directory
-#in a function just in case I change $DOTFILES_GIT elsewhere
-function dot() {
-    cd $DOTFILES_GIT
-}
-
-function kb() {
-    cd $KEYBASE_HOME
-}
-
-function org() {
-    cd ~/data/org
-}
+alias dot='cd $DOTFILES_GIT'
+alias kb='cd $KEYBASE_HOME'
+alias org='cd ~/data/org'
