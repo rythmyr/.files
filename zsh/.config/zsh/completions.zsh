@@ -11,5 +11,5 @@ zstyle ':completion:*' preserve-prefix '//[^/]##/'
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 
 mkdir -p ~/.cache/zsh/
-#autoload -Uz compinit
-#compinit -d ~/.cache/zsh/zcompdump
+autoload -Uz compinit
+compinit -d ~/.cache/zsh/zcompdump
