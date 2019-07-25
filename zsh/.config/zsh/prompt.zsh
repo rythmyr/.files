@@ -79,3 +79,5 @@ PROMPT='
 RPROMPT='$(prompt_branch "$vcs_info_msg_0_")  %F{4}%*%f'
 
 
+# Syntax hilighting
+[ -s "$HOME/.config/zsh/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && \. "$HOME/.config/zsh/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

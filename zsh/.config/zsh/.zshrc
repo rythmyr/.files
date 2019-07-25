@@ -18,20 +18,8 @@ for file in $files; do
     fi
 done
 
-HISTFILE=~/.cache/zsh/history
-HISTSIZE=1000
-SAVEHIST=1000
-setopt appendhistory
-setopt nomatch
-setopt promptsubst
-setopt histignorespace
-setopt histignorealldups
-setopt globdots
 
 bindkey -v
 bindkey "^?" backward-delete-char
-
-[ -s "$HOME/.config/zsh/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && \. "$HOME/.config/zsh/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
 
 [ -z "$RYTH_ZSH_NOFETCH" ] && neofetch
