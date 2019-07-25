@@ -1,7 +1,7 @@
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
-alias la='ls --color=auto -a'
-alias lla='ls --color=auto -lha'
+alias la='ls --color=auto -A'
+alias lla='ls --color=auto -lhA'
 alias bell='echo -e "\a"'
 
 alias e="$EDITOR ~/.config/zsh/.zshrc"
