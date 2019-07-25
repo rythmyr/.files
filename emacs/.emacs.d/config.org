@@ -304,5 +304,16 @@ for a better buffer list
     :after (evil-collection)
     :config
     (evil-ex-define-cmd "ls" 'ibuffer)
-    (evil-collection-ibuffer-setup))
+    (evil-collection-ibuffer-setup)
+    (setq ibuffer-formats
+          '((mark modified read-only locked " "
+                  (name 32 32 :left :elide)
+                  " "
+                  (size 9 -1 :right)
+                  " "
+                  (mode 16 16 :left :elide)
+                  " " filename-and-process)
+            (mark " "
+                  (name 16 -1)
+                  " " filename))))
 #+END_SRC
