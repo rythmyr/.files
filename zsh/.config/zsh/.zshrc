@@ -1,10 +1,19 @@
 [ -n "$RYTH_ZSH_DEBUG" ] && echo "sourcing .zshrc"
-[ -s "$HOME/.config/zsh/environment.zsh" ] && \. "$HOME/.config/zsh/environment.zsh"
-[ -s "$HOME/.config/zsh/completions.zsh" ] && \. "$HOME/.config/zsh/completions.zsh"
-[ -s "$HOME/.config/zsh/alias.zsh" ] && \. "$HOME/.config/zsh/alias.zsh"
-[ -s "$HOME/.config/zsh/local.zsh" ] && \. "$HOME/.config/zsh/local.zsh"
-[ -s "$HOME/.config/zsh/programs.zsh" ] && \. "$HOME/.config/zsh/programs.zsh"
-[ -s "$HOME/.config/zsh/prompt.zsh" ] && \. "$HOME/.config/zsh/prompt.zsh"
+local files=(
+    "environment.zsh"
+    "completions.zsh"
+    "alias.zsh"
+    "local.zsh"
+    "programs.zsh"
+    "prompt.zsh"
+)
+
+for file in $files; do
+    local fname=$ZDOTDIR/$file
+    if [[ -r $fname ]]; then
+        source $fname
+    fi
+done
 
 HISTFILE=~/.cache/zsh/history
 HISTSIZE=1000
