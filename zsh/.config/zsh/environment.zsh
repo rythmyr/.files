@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-[ -n "$RYTH_ZSH_DEBUG" ] && echo "sourcing environment.zsh"
 
 PATH=$HOME/bin:$PATH
 mkdir -p $HOME/.cache/zsh/

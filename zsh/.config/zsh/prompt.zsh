@@ -1,8 +1,3 @@
-#!/usr/bin/env zsh
-[ -n "$RYTH_ZSH_DEBUG" ] && echo "sourcing prompt.zsh"
-
-setopt promptsubst
-
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '%b	%S' #using tabs intentionally here, better delimiters for parsing with cut
 zstyle ':vcs_info:*' actionformats '%b-%a	%S'

@@ -1,6 +1,3 @@
-#!/usr/bin/env zsh
-[ -n "$RYTH_ZSH_DEBUG" ] && echo "sourcing programs.zsh"
-
 # load Node Version Manager
 [ -s "/usr/share/nvm/init-nvm.sh" ] && \. /usr/share/nvm/init-nvm.sh
 # on the mac

@@ -1,6 +1,3 @@
-#!/usr/bin/env zsh
-[ -n "$RYTH_ZSH_DEBUG" ] && echo "sourcing alias.zsh"
-
 alias ls='ls --color=auto'
 alias ll='ls --color=auto -lh'
 alias la='ls --color=auto -a'

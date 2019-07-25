@@ -1,7 +1,3 @@
-#!/usr/bin/env zsh
-
-[ -n "$RYTH_ZSH_DEBUG" ] && echo "sourcing completions.zsh"
-
 zstyle ':completion:*' expand suffix
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' format '(%d)'

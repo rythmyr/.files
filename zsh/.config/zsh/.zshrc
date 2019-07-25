@@ -11,6 +11,9 @@ local files=(
 for file in $files; do
     local fname=$ZDOTDIR/$file
     if [[ -r $fname ]]; then
+        if [[ -n $RYTH_ZSH_DEBUG ]]; then
+            echo "sourcing $file"
+        fi
         source $fname
     fi
 done
