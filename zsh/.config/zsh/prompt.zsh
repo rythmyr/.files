@@ -1,6 +1,6 @@
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' formats '%b	%S' #using tabs intentionally here, better delimiters for parsing with cut
-zstyle ':vcs_info:*' actionformats '%b-%a	%S'
+zstyle ':vcs_info:*' actionformats '%b	%S	%a'
 zstyle ':vcs_info:*' enable git
 
 # precmd is called right before the prompt
@@ -10,11 +10,10 @@ precmd() {
 
 # preexec is called right before a command gets called
 preexec() {
-    
 }
 
 # zsh has a vi mode built in, this shows whether I'm in insert mode or not
-vi_mode_prompt_info() {
+local function vi_mode_prompt_info() {
     # keymap is main by default, but doesn't get populated into keymap until the keymap switches
     # replace main/viins with INSERT
     # replace vicmd with NORMAL
@@ -64,6 +63,13 @@ local function prompt_branch() {
     [ $branch ] && echo -n "%F{3}($branch)%f"
 }
 
+local function prompt_action() {
+    # "rebase" or "merge", usually
+    local action=$(echo $1 | cut -f3)
+
+    [ $action ] && echo -n " %F{1}{$action}%f"
+}
+
 # Updates editor information when the keymap changes.
 function zle-keymap-select() {
     zle reset-prompt
@@ -76,8 +82,7 @@ KEYTIMEOUT=4
 PROMPT='
 %B%F{13}┌%b%f$(vi_mode_prompt_info) $(prompt_dir "$vcs_info_msg_0_") $(prompt_symlink_dir)
 %B%F{13}└>%f%b '
-RPROMPT='$(prompt_branch "$vcs_info_msg_0_")  %F{4}%*%f'
-
+RPROMPT='$(prompt_branch "$vcs_info_msg_0_")$(prompt_action "$vcs_info_msg_0_")  %F{4}%*%f'
 
 # Syntax hilighting
 [ -s "$HOME/.config/zsh/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && \. "$HOME/.config/zsh/lib/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
