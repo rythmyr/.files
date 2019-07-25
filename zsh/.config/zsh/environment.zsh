@@ -2,7 +2,10 @@
 # STANDARD VARIABLES #
 #====================#
 
-PATH=$HOME/bin:$PATH
+# Don't continually add to $PATH
+# Also works as a way to reset it
+[ -z "$DEFAULT_PATH" ] && export DEFAULT_PATH=$PATH
+PATH=$HOME/bin:$DEFAULT_PATH
 
 export EDITOR=`which nvim`
 
