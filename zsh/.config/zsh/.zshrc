@@ -23,3 +23,5 @@ bindkey -v
 bindkey "^?" backward-delete-char
 
 [ -z "$RYTH_ZSH_NOFETCH" ] && neofetch
+
+export RYTH_ZSH_NOFETCH="true"
