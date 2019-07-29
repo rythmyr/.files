@@ -143,8 +143,7 @@ useful for things like ibuffer, which do not have evil keys by default
            entry
            (file+datetree "/keybase/private/rythmyr/org/life.org")
            "* %U
-  %?
-  .")))
+  %?")))
 #+END_SRC
 ** Refile Targets
 #+BEGIN_SRC emacs-lisp
