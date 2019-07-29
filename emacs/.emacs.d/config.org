@@ -130,7 +130,8 @@ useful for things like ibuffer, which do not have evil keys by default
            "Inbox"
            entry
            (file+headline "/keybase/private/rythmyr/org/todo.org" "Inbox")
-           "* TODO %?")
+           "* TODO %?
+  %U")
           ("e"
            "Appointment"
            entry
