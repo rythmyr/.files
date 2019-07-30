@@ -294,6 +294,11 @@ for better buffer/file switching (C-x b and C-x C-f)
   (setq ido-everywhere t)
   (ido-mode 1)
   (evil-leader/set-key "gf" 'ido-find-file)
+  (use-package ido-vertical-mode
+    :ensure t
+    :config
+    (ido-vertical-mode 1)
+    (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 #+END_SRC
 ** ibuffer
 for a better buffer list
