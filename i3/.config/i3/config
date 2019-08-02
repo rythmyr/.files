@@ -170,6 +170,15 @@ bindsym $mod+w workspace $wWatch
 bindsym $mod+p workspace $wPlay
 bindsym $mod+s workspace $wSpotify
 
+bindsym $mod+Shift+m move container to workspace $wMain
+bindsym $mod+Shift+a move container to workspace $wAlt
+bindsym $mod+Shift+r move container to workspace $wRef
+bindsym $mod+Shift+c move container to workspace $wChats
+bindsym $mod+Shift+e move container to workspace $wEmacs
+bindsym $mod+Shift+w move container to workspace $wWatch
+bindsym $mod+Shift+p move container to workspace $wPlay
+bindsym $mod+Shift+s move container to workspace $wSpotify
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
