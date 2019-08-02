@@ -11,17 +11,7 @@ call plug#begin('~/.local/nvim/plugged')
 Plug 'editorconfig/editorconfig-vim'
 
 " general syntax checking, autocomplete
-if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/deoplete-clangx'
-else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-"Syntax checking/linting
-Plug 'vim-syntastic/syntastic'
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-tsserver coc-angular coc-json coc-tslint-plugin'}
 
 "automatically close braces
 Plug 'jiangmiao/auto-pairs'
@@ -32,7 +22,6 @@ Plug 'airblade/vim-gitgutter'
 
 " typescript support
 Plug 'herringtondarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
 
 " HTML tags stuff
 Plug 'valloric/MatchTagAlways'
@@ -114,14 +103,14 @@ nnoremap gp `[v`]
 "=================="
 "universal commands"
 "=================="
+
 command! Scratch new<bar>resize 16<bar>setlocal buftype=nofile " open a scratch buffer and make it not huge
 command! Term split<bar>resize 20<bar>normal <c-w>J:term<cr>
-
 
 "=================="
 "npm-based projects"
 "=================="
-if filereadable("package.json")
+if filereadable(findfile('package.json', ';'))
     set path=src/**,.,, " everything we care about usually is in src/ for npm projects
 endif
 
@@ -129,34 +118,23 @@ endif
 "plugin settings"
 "==============="
 
-"deoplete, for asyncronous completions
-let g:deoplete#enable_at_startup = 1
-
-"syntastic, for syntax checking
-let g:syntastic_always_populate_loc_list = 1
-
 "typescript stuff
 fun! s:setTypescriptOptions()
     imap <buffer> <C-Space> <c-x><c-o>
-    nnoremap <buffer> <leader>lu :TSRefs<cr>
-    nnoremap <buffer> <leader>ld :TSDef<cr>
-    nnoremap <buffer> <leader>lt :TSTypeDef<cr>
-    nnoremap <buffer> <leader>lr :TSRename <C-r><C-w>
-    nnoremap <buffer> <leader>lp :TSDefPreview<cr>
-    nnoremap <buffer> <leader>le :TSGetErrorFull<cr>
-    nnoremap <buffer> <leader>lf :TSGetCodeFix<cr>
+    nmap <buffer> <leader>lu <Plug>(coc-references)
+    nmap <buffer> <leader>ld <Plug>(coc-definition)
+    nmap <buffer> <leader>lt <Plug>(coc-type-definition)
+    nmap <buffer> <leader>lr <Plug>(coc-rename)
+    nmap <buffer> <leader>lf <Plug>(coc-fix-current)
     nnoremap <buffer> <leader>l/ I// <c-\><c-n>
     nnoremap <buffer> <leader>l? :s/\/\/ \?//<cr>:noh<cr>
     nnoremap <buffer> <leader>lz vi{zf
-    ab <buffer> clog console.log
-    ab <buffer> cerr console.error
 endfun
 augroup typescript
     autocmd!
     autocmd FileType typescript call s:setTypescriptOptions()
 augroup END
 
-let g:syntastic_typescript_checkers = ['tslint']
 command! SetTypescriptOptions call s:setTypescriptOptions()
 
 
@@ -172,7 +150,6 @@ augroup html
 augroup END
 
 command! SetHtmlOptions call s:setHtmlOptions()
-let g:syntastic_html_checkers = ['']
 
 "json stuff
 fun! s:setJsonOptions()
