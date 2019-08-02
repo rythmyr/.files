@@ -23,6 +23,7 @@
     ce = "config --global -e"
     cm = commit -v
     co = checkout
+    d = diff
     dh = diff HEAD --
     dm = diff origin/master --
     du = diff @{u} --
