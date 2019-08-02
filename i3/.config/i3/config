@@ -99,9 +99,6 @@ mode "i3" {
     bindsym $mod+i mode "default"
     bindsym r mode "resize"
 
-    # close window
-    bindsym q kill; mode "default"
-
     # These are swapped to align better with vim (vertical split makes the split line vertical, not vertically stacked windows)
     # split in vertical orientation
     bindsym v split h; mode "default"
@@ -189,6 +186,9 @@ bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+# close window
+bindsym $mod+q kill; mode "default"
 
 # mode keybinds
 bindsym $mod+i mode "i3"
