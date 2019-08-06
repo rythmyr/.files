@@ -13,6 +13,8 @@ Plug 'editorconfig/editorconfig-vim'
 " general syntax checking, autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-tsserver coc-angular coc-json coc-tslint-plugin'}
 
+Plug 'tpope/vim-surround'
+
 "automatically close braces
 Plug 'jiangmiao/auto-pairs'
 
