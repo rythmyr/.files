@@ -106,6 +106,18 @@ nnoremap gp `[v`]
 
 command! Scratch new<bar>resize 16<bar>setlocal buftype=nofile " open a scratch buffer and make it not huge
 command! Term split<bar>resize 20<bar>normal <c-w>J:term<cr>
+" start a terminal in the directory the current file is in
+" the normal command doesn't work inside of the function for some reason
+command! Lterm call s:localTerminal()<bar>normal <c-w>Ji
+fun! s:localTerminal()
+    let l:vim_dir = expand('%:p:h')
+    let l:vim_current_dir = getcwd()
+    split
+    execute 'lcd ' . l:vim_dir
+    resize 20
+    terminal
+    execute 'lcd ' . l:vim_current_dir
+endfun
 
 "=================="
 "npm-based projects"
