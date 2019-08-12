@@ -25,9 +25,6 @@ Plug 'airblade/vim-gitgutter'
 " typescript support
 Plug 'herringtondarkholme/yats.vim'
 
-" HTML tags stuff
-Plug 'valloric/MatchTagAlways'
-
 " solarized theme
 Plug 'altercation/vim-colors-solarized'
 call plug#end()
