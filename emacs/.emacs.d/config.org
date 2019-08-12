@@ -142,7 +142,7 @@ useful for things like ibuffer, which do not have evil keys by default
            "Journal"
            entry
            (file+datetree "/keybase/private/rythmyr/org/life.org")
-           "* %U
+           "* %<%F %R>
   %?")))
 #+END_SRC
 ** Refile Targets
