@@ -10,8 +10,7 @@ call plug#begin('~/.local/nvim/plugged')
 " support for .editorconfig files
 Plug 'editorconfig/editorconfig-vim'
 
-" general syntax checking, autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-tsserver coc-angular coc-json coc-tslint-plugin'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-tsserver coc-json coc-tslint-plugin coc-lists'}
 
 Plug 'tpope/vim-surround'
 
