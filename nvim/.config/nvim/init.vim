@@ -98,6 +98,8 @@ nnoremap <leader><tab> za
 " hilight last pasted content
 nnoremap gp `[v`]
 
+command! Find CocList files
+
 "=================="
 "universal commands"
 "=================="
@@ -136,6 +138,7 @@ fun! s:setTypescriptOptions()
     nmap <buffer> <leader>lt <Plug>(coc-type-definition)
     nmap <buffer> <leader>lr <Plug>(coc-rename)
     nmap <buffer> <leader>lf <Plug>(coc-fix-current)
+    nmap <buffer> <leader>ls :CocList -I symbols<cr>
     nnoremap <buffer> <leader>l/ I// <c-\><c-n>
     nnoremap <buffer> <leader>l? :s/\/\/ \?//<cr>:noh<cr>
     nnoremap <buffer> <leader>lz vi{zf
