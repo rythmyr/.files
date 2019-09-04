@@ -3,6 +3,7 @@ local files=(
     "environment.zsh"
     "completions.zsh"
     "alias.zsh"
+    "keybinds.zsh"
     "local.zsh"
     "programs.zsh"
     "prompt.zsh"
@@ -19,8 +20,6 @@ for file in $files; do
 done
 
 
-bindkey -v
-bindkey "^?" backward-delete-char
 
 [ -z "$RYTH_ZSH_NOFETCH" ] && neofetch
 
