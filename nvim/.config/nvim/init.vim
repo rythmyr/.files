@@ -94,6 +94,9 @@ nnoremap <leader><tab> za
 " hilight last pasted content
 nnoremap gp `[v`]
 
+" turn off search hilighting when I enter insert mode
+nnoremap i :noh<cr>i
+
 command! Find CocList files
 
 "=================="
