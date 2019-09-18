@@ -175,7 +175,7 @@ augroup END
 command! SetJsonOptions call s:setJsonOptions()
 
 
-if !exists('s:has_started')
+if !exists('s:has_started') && argc() == 0
     let s:has_started = 1
     echo 'started'
     term
