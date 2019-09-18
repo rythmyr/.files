@@ -149,6 +149,23 @@ augroup END
 
 command! SetTypescriptOptions call s:setTypescriptOptions()
 
+"c++ stuff
+fun! s:setCppOptions()
+    nmap <buffer> <leader>lu <Plug>(coc-references)
+    nmap <buffer> <leader>ld <Plug>(coc-definition)
+    nmap <buffer> <leader>lt <Plug>(coc-type-definition)
+    nmap <buffer> <leader>lr <Plug>(coc-rename)
+    nmap <buffer> <leader>lf <Plug>(coc-fix-current)
+    nnoremap <buffer> <leader>l/ I// <c-\><c-n>
+    nnoremap <buffer> <leader>l? :s/\/\/ \?//<cr>:noh<cr>
+    nnoremap <buffer> <leader>lz vi{zf
+endfun
+augroup cpp
+    autocmd!
+    autocmd FileType cpp call s:setCppOptions()
+augroup END
+
+command! SetCppOptions call s:setCppOptions()
 
 
 "html stuff
