@@ -97,6 +97,12 @@ nnoremap gp `[v`]
 " turn off search hilighting when I enter insert mode
 nnoremap i :noh<cr>i
 
+" easier tab switching
+nnoremap <C-w>t :tabn<cr>
+nnoremap <C-w><C-t> :tabn<cr>
+nnoremap <C-w>r :tabN<cr>
+nnoremap <C-w><C-r> :tabN<cr>
+
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
