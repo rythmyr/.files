@@ -18,11 +18,14 @@ function start_agent() {
 if [ -f "$SSH_ENV" ]; then
     . $SSH_ENV > /dev/null
     # if that process is running, and it's an ssh agent, then don't start another one
-    ps $SSH_AGENT_PID | grep "$SSH_CMD" >/dev/null && {
-        [ -n "$RYTH_ZSH_DEBUG" ] && echo "ssh agent already started"
-    } || {
+    ps $SSH_AGENT_PID | grep "$SSH_CMD" >/dev/null 
+    if [ $? -eq 0 ]; then {
+        [ -n "$RYTH_ZSH_DEBUG" ] && echo "ssh agent already started";
+    } 
+    else {
         start_agent;
     }
+    fi
 else
     start_agent;
 fi
