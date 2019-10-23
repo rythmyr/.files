@@ -137,7 +137,8 @@ useful for things like ibuffer, which do not have evil keys by default
            entry
            (file+olp+datetree "~/data/org/todo.org" "Events")
            "* %?
-  %^{Start Time}T")
+  %T"
+           :time-prompt t)
           ("j"
            "Journal"
            entry
