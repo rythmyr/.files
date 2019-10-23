@@ -143,7 +143,52 @@ useful for things like ibuffer, which do not have evil keys by default
            entry
            (file+datetree "/keybase/private/rythmyr/org/life.org")
            "* %<%F %R>
-  %?")))
+  %?")
+          ("i" "Clock In")
+          ("o" "Clock Out")
+          ("iw"
+           "Work"
+           entry
+           (file+olp+datetree "~/data/org/times.org")
+           "* IN  WORK %<%F %R>"
+           :immediate-finish t
+           :tree-type week)
+          ("ow"
+           "Work"
+           entry
+           (file+olp+datetree "~/data/org/times.org")
+           "* OUT WORK %<%F %R>"
+           :immediate-finish t
+           :tree-type week)
+          ("il"
+           "Lunch"
+           entry
+           (file+olp+datetree "~/data/org/times.org")
+           "* IN  LUNCH %<%F %R>"
+           :immediate-finish t
+           :tree-type week)
+          ("ol"
+           "Lunch"
+           entry
+           (file+olp+datetree "~/data/org/times.org")
+           "* OUT LUNCH %<%F %R>"
+           :immediate-finish t
+           :tree-type week)
+          ("ib"
+           "Break"
+           entry
+           (file+olp+datetree "~/data/org/times.org")
+           "* IN  BREAK %<%F %R>"
+           :immediate-finish t
+           :tree-type week)
+          ("ob"
+           "Break"
+           entry
+           (file+olp+datetree "~/data/org/times.org")
+           "* OUT BREAK %<%F %R>"
+           :immediate-finish t
+           :tree-type week)
+          ))
 #+END_SRC
 ** Refile Targets
 #+BEGIN_SRC emacs-lisp
