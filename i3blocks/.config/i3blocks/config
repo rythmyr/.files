@@ -1,0 +1,11 @@
+[memory]
+command=$HOME/.config/i3blocks/scripts/memory
+interval=5
+
+[volume]
+command=$HOME/.config/i3blocks/scripts/volume
+signal=10
+
+[time]
+command=date +"%D %T"
+interval=1

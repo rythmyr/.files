@@ -1,0 +1,2 @@
+#!/usr/bin/env zsh
+amixer -D pulse get Master | perl -ne 'if (/.*\[(\d+%)\] \[(on|off)\]/){CORE::say $2 eq "off" ? "MUTE" : "$1"; exit}'
