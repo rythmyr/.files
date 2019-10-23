@@ -14,9 +14,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': ':CocInstall coc-tsserver 
 
 Plug 'tpope/vim-surround'
 
-"automatically close braces
-Plug 'jiangmiao/auto-pairs'
-
 " git plugins
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
