@@ -135,7 +135,7 @@ useful for things like ibuffer, which do not have evil keys by default
           ("e"
            "Appointment"
            entry
-           (file+headline "~/data/org/events.org" "Appointments")
+           (file+olp+datetree "~/data/org/todo.org" "Events")
            "* %?
   %^{Start Time}T")
           ("j"
