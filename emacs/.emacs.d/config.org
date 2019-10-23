@@ -129,7 +129,7 @@ useful for things like ibuffer, which do not have evil keys by default
         '(("i"
            "Inbox"
            entry
-           (file+headline "/keybase/private/rythmyr/org/todo.org" "Inbox")
+           (file+headline "~/data/org/todo.org" "Inbox")
            "* TODO %?
   %U")
           ("e"
