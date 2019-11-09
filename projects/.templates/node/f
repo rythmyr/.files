@@ -1,0 +1,25 @@
+#!/usr/bin/env zsh
+
+cd $PROJECT_DIR/repo
+
+tmo && git f
+
+local SHOULD_NPM_CI=0
+if git diff --name-only origin/master | grep .; then
+else
+    echo "no changes"
+    s
+    exit
+fi
+
+if git diff --name-only origin/master | grep package-lock.json; then
+    SHOULD_NPM_CI=1
+fi
+
+git mm
+
+if [ $SHOULD_NPM_CI -eq 1 ]; then
+    npm ci
+fi
+
+s

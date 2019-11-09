@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+
+pushd $PROJECT_DIR/repo/src; nvim; popd
