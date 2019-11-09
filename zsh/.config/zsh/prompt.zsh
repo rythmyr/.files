@@ -44,14 +44,14 @@ local function prompt_dir() {
     realPwd=$(pwd -P)
     projectDir=${${${realPwd%$relativePath}%/}/$HOME/\~}
 
-    if [ -z $relativePath ]; then
+    if [[ -z $relativePath ]]; then
         echo -n "%F{5}$projectDir%f" && exit
     else
         #only executes if in a git controlled directory
 
         # either pwd relative to $HOME or full path
         echo -n "%F{3}$projectDir%f"
-        if [ ! $relativePath = "." ]; then
+        if [[ ! $relativePath = "." ]]; then
             echo -n "%F{4}/%f%B%F{5}$relativePath%f%b"
         fi
     fi
@@ -60,14 +60,14 @@ local function prompt_dir() {
 local function prompt_branch() {
     local branch=$(echo $1 | cut -f1)
 
-    [ $branch ] && echo -n "%F{3}($branch)%f"
+    [[ $branch ]] && echo -n "%F{3}($branch)%f"
 }
 
 local function prompt_action() {
     # "rebase" or "merge", usually
     local action=$(echo $1 | cut -f3)
 
-    [ $action ] && echo -n " %F{1}{$action}%f"
+    [[ $action ]] && echo -n " %F{1}{$action}%f"
 }
 
 # Updates editor information when the keymap changes.
