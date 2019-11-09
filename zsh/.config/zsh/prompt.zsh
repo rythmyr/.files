@@ -70,6 +70,11 @@ local function prompt_action() {
     [[ $action ]] && echo -n " %F{1}{$action}%f"
 }
 
+local function prompt_project() {
+    local project=$PROJECT
+    [[ $project ]] && echo -n "\n%F{15}[$project]%f "
+}
+
 # Updates editor information when the keymap changes.
 function zle-keymap-select() {
     zle reset-prompt
@@ -79,7 +84,7 @@ zle -N zle-keymap-select
 
 KEYTIMEOUT=4
 
-PROMPT='
+PROMPT='$(prompt_project)
 %B%F{13}┌%b%f$(vi_mode_prompt_info) $(prompt_dir "$vcs_info_msg_0_") $(prompt_symlink_dir)
 %B%F{13}└>%f%b '
 RPROMPT='$(prompt_branch "$vcs_info_msg_0_")$(prompt_action "$vcs_info_msg_0_")  %F{4}%*%f'
