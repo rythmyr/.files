@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+local session="work"
+
+export RYTH_ZSH_NOFETCH="1"
+
+# -d detach from session (so we can send keys right away)
+tmux new-session -d -s $session -n vim 2>/dev/null
+if [ $? -ne 0 ]; then
+    #session already exists
+    tmux a -t $session
+else
+    #session was created successfully
+    #select the only pane
+    #cd to pxui, start the first pane with the server, then start vim
+    tmux splitw -v
+    tmux selectp -t 0
+    tmux send-keys "cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;run-start" C-m
+
+    tmux selectp -t 1
+    tmux send-keys "rpane;cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;edit" C-m
+    #attach to the session
+    tmux a -t $session
+fi

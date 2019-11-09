@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+tmux send-keys -t 0 C-c
+tmux send-keys -t 0 C-c "cd $PROJECT_DIR;source sourceme;${${@}}" C-m
