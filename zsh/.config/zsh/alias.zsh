@@ -1,7 +1,7 @@
-alias ls='ls --color=auto'
-alias ll='ls --color=auto -lh'
-alias la='ls --color=auto -A'
-alias lla='ls --color=auto -lhA'
+alias ls='ls --color=auto --group-directories-first'
+alias ll='ls --color=auto --group-directories-first -lh'
+alias la='ls --color=auto --group-directories-first -A'
+alias lla='ls --color=auto --group-directories-first -lhA'
 alias bell='echo -e "\a"'
 
 alias zsh-edit="$EDITOR $ZDOTDIR/.zshrc"
