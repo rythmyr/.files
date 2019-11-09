@@ -18,7 +18,7 @@ else
     tmux send-keys "cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;run-start" C-m
 
     tmux selectp -t 1
-    tmux send-keys "rpane;cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;edit" C-m
+    tmux send-keys "th;cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;edit" C-m
     #attach to the session
     tmux a -t $session
 fi
