@@ -4,8 +4,27 @@ local session="work"
 
 export RYTH_ZSH_NOFETCH="1"
 
+local function do_work() {
+    tmux selectp -t 0
+    tmux send-keys "cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;run-start" C-m
+
+    tmux selectp -t 1
+    tmux send-keys "th;cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;edit" C-m
+}
+
+if [[ $TMUX ]]; then
+    # tmux already running, already attached
+    tmux selectp -t 1 >/dev/null 2>/dev/null
+    if [[ $? -ne 0 ]]; then
+        tmux splitw -v
+    fi
+    do_work
+
+    exit 0
+fi
+
 # -d detach from session (so we can send keys right away)
-tmux new-session -d -s $session -n vim 2>/dev/null
+tmux new-session -d -s $session -n vim >/dev/null 2>/dev/null
 if [ $? -ne 0 ]; then
     #session already exists
     tmux a -t $session
@@ -14,11 +33,8 @@ else
     #select the only pane
     #cd to pxui, start the first pane with the server, then start vim
     tmux splitw -v
-    tmux selectp -t 0
-    tmux send-keys "cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;run-start" C-m
 
-    tmux selectp -t 1
-    tmux send-keys "th;cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;edit" C-m
+    do_work
     #attach to the session
     tmux a -t $session
 fi
