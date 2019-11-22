@@ -131,7 +131,10 @@ useful for things like ibuffer, which do not have evil keys by default
            entry
            (file+headline "~/data/org/todo.org" "Inbox")
            "* TODO %?
-  %U")
+  :LOGBOOK:
+  - State \"TODO\"       from \"\"           %U
+  :END:
+  ")
           ("e"
            "Appointment"
            entry
