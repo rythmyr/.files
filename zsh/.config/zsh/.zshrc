@@ -18,9 +18,3 @@ for file in $files; do
         source $fname
     fi
 done
-
-
-
-[ -z "$RYTH_ZSH_NOFETCH" ] && neofetch
-
-export RYTH_ZSH_NOFETCH="true"
