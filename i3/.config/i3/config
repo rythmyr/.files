@@ -107,7 +107,7 @@ mode "i3" {
 
     # enter fullscreen mode for the focused container
     bindsym f fullscreen toggle; mode "default"
-    bindsym g floating toggle
+    bindsym g floating toggle; mode "default"
 
     # change container layout (stacked, tabbed, toggle split)
     bindsym w layout tabbed; mode "default"
