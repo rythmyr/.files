@@ -2,6 +2,4 @@
 
 tmux select-layout main-horizontal
 
-tmux selectp -t 0
-tmux resize-pane -y 20
-tmux selectp -t 1
+tmux resize-pane -t0 -y 20
