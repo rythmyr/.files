@@ -94,6 +94,7 @@ useful for things like ibuffer, which do not have evil keys by default
      org-capture)
     :hook
     (org-mode . org-indent-mode)
+    (org-mode . visual-line-mode)
     :config
     (setq org-directory "~/data/org/"
           org-default-notes-file (concat org-directory "notes.org")
