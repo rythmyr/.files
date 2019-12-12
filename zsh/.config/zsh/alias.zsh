@@ -4,8 +4,8 @@ alias la='ls --color=auto --group-directories-first -A'
 alias lla='ls --color=auto --group-directories-first -lhA'
 alias bell='echo -e "\a"'
 
-alias zsh-edit="$EDITOR $ZDOTDIR/.zshrc"
-alias zsh-source="RYTH_ZSH_DEBUG=true . $ZDOTDIR/.zshrc"
+alias ce="$EDITOR $ZDOTDIR/.zshrc"
+alias cr="RYTH_ZSH_DEBUG=true . $ZDOTDIR/.zshrc"
 
 alias dot='cd $DOTFILES_GIT'
 alias kb='cd $KEYBASE_HOME'
