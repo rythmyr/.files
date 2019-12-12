@@ -12,6 +12,14 @@ local function do_work() {
     tmux send-keys "th;cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;edit" C-m
 }
 
+if [[ -z $PROJECT_DIR ]]; then
+    if [[ $PROJECT_DEFAULT ]]; then
+        pj $DEFAULT_PROJECT
+    fi
+fi
+
+
+
 if [[ $TMUX ]]; then
     # tmux already running, already attached
     tmux selectp -t 1 >/dev/null 2>/dev/null
