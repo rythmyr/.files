@@ -14,8 +14,7 @@ local function do_work() {
 
 if [[ -z $PROJECT_DIR ]]; then
     if [[ $PROJECT_DEFAULT ]]; then
-        which pj
-        pj $PROJECT_DEFAULT
+        [[ -s "$HOME/scripts/source/pj.function.zsh" ]] && . "$HOME/scripts/source/pj.function.zsh" && pj $PROJECT_DEFAULT
     fi
 fi
 
