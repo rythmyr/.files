@@ -1,5 +1,3 @@
 #!/usr/bin/env zsh
 
 tmux select-layout main-horizontal
-
-tmux resize-pane -t0 -y 20
