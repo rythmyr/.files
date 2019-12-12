@@ -72,6 +72,8 @@ let mapleader = " "
 nnoremap <leader>ec :tabnew $MYVIMRC<cr>
 nnoremap <leader>cr :source $MYVIMRC<cr>
 
+nnoremap <leader>ss :syntax sync fromstart<cr>
+
 " move lines up and down
 noremap _ :normal ddkP<cr>
 noremap - :normal ddp<cr>
