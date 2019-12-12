@@ -14,7 +14,8 @@ local function do_work() {
 
 if [[ -z $PROJECT_DIR ]]; then
     if [[ $PROJECT_DEFAULT ]]; then
-        pj $DEFAULT_PROJECT
+        which pj
+        pj $PROJECT_DEFAULT
     fi
 fi
 
@@ -38,8 +39,6 @@ if [ $? -ne 0 ]; then
     tmux a -t $session
 else
     #session was created successfully
-    #select the only pane
-    #cd to pxui, start the first pane with the server, then start vim
     tmux splitw -v
 
     do_work
