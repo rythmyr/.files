@@ -2,7 +2,7 @@
 
 cd $PROJECT_DIR/repo
 
-#[[ $TMUX ]] && tmo
+[[ $TMUX ]] && tmo
 
 local EXIT_CODE=0
 local function cleanup() {
