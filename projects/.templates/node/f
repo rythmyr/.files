@@ -2,24 +2,79 @@
 
 cd $PROJECT_DIR/repo
 
-tmo && git f
+#[[ $TMUX ]] && tmo
 
-local SHOULD_NPM_CI=0
-if git diff --name-only origin/master | grep .; then
-else
-    echo "no changes"
-    s
-    exit
+local EXIT_CODE=0
+local function cleanup() {
+    echo ">>>cleaning up..."
+    if [[ $SHOULD_CHECKOUT_PREVIOUS ]]; then
+        echo ">>>checking out previous branch..."
+        git co -
+        unset SHOULD_CHECKOUT_PREVIOUS
+    fi
+
+    if [[ $SHOULD_APPLY_STASH ]]; then
+        echo ">>>popping created stash..."
+        git stash pop
+        unset SHOULD_APPLY_STASH
+    fi
+}
+
+trap 'exit 1' SIGINT
+trap 'cleanup' SIGEXIT
+
+
+local SHOULD_APPLY_STASH
+if git s | grep . > /dev/null; then
+    #changes in working directory, stash them
+    echo ">>>creating stash..."
+    #ensures we stash files that have been created too
+    git add .
+    git stash
+    SHOULD_APPLY_STASH=1
 fi
 
-if git diff --name-only origin/master | grep package-lock.json; then
+local SHOULD_CHECKOUT_PREVIOUS
+if [ "$(git rev-parse --abbrev-ref HEAD)" != 'master' ]; then
+    echo ">>>checking out master..."
+    git co master
+    SHOULD_CHECKOUT_PREVIOUS=1
+fi
+
+echo ">>>fetching..."
+if git f; then
+    echo ">>>fetch successful"
+else
+    echo ">>>fetch failed"
+fi
+
+echo ">>>determining merge necessity"
+local SHOULD_MERGE
+if git diff --name-only origin/master | grep . > /dev/null; then
+    echo "!!!determined should merge with master"
+    SHOULD_MERGE=1
+fi
+
+echo ">>>determining 'npm ci' necessity"
+local SHOULD_NPM_CI
+
+local local_dependencies=$(git show master:package.json | jq -S -M -c -a '. | { deps: .dependencies, dev: .devDependencies }')
+local remote_dependencies=$(git show origin/master:package.json | jq -S -M -c -a '. | { deps: .dependencies, dev: .devDependencies }')
+if [[ "$local_dependencies" != "$remote_dependencies" ]]; then
+    echo "!!!changes in dependencies detected, will run 'npm ci' afterward"
     SHOULD_NPM_CI=1
 fi
 
-git mm
-
-if [ $SHOULD_NPM_CI -eq 1 ]; then
-    npm ci
+if [[ $SHOULD_MERGE ]]; then
+    echo ">>>merging..."
+    git mm
+    unset SHOULD_MERGE
 fi
 
-s
+if [[ $SHOULD_NPM_CI ]]; then
+    echo ">>>running 'npm ci'..."
+    npm ci || exit 1
+    unset SHOULD_NPM_CI
+fi
+
+[[ $TMUX ]] && s
