@@ -179,18 +179,18 @@ useful for things like ibuffer, which do not have evil keys by default
            "* OUT LUNCH %<%F %R>"
            :immediate-finish t
            :tree-type week)
-          ("ib"
-           "Break"
+          ("im"
+           "Meeting"
            entry
            (file+olp+datetree "~/data/org/times.org")
-           "* IN  BREAK %<%F %R>"
+           "* IN  MEETING %<%F %R>"
            :immediate-finish t
            :tree-type week)
-          ("ob"
-           "Break"
+          ("om"
+           "Meeting"
            entry
            (file+olp+datetree "~/data/org/times.org")
-           "* OUT BREAK %<%F %R>"
+           "* OUT MEETING %<%F %R>"
            :immediate-finish t
            :tree-type week)
           ))
