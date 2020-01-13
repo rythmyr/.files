@@ -87,8 +87,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 " complete with tab instead of <c-n> or <c-p>
-inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+inoremap <expr> <tab> pumvisible() ? "\<Down>" : "\<tab>"
+inoremap <expr> <s-tab> pumvisible() ? "\<Up>" : "\<s-tab>"
 
 nnoremap <leader><tab> za
 
