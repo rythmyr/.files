@@ -7,3 +7,6 @@
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = git@github.com:rythmyr/.files-nvim
+[submodule "git/.config/git"]
+	path = git/.config/git
+	url = git@github.com:rythmyr/.files-git
