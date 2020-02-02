@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-if ! [ -x $(command -v px) ]> /dev/null; then
+if ! [ -x $(command -v stow) ]> /dev/null; then
     echo "$0 requires stow to be installed. It should be available in your package manager, or via brew on mac."
     exit 127
 fi
