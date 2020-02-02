@@ -233,6 +233,7 @@ assign [class="^Emacs"] $wEmacs
 assign [class="^TelegramDesktop"] $wChats
 assign [class="^discord"] $wChats
 assign [class="^Spotify$"] $wSpotify
+for_window [class="^Spotify$"] move container to workspace $wSpotify
 
 #============#
 ## Settings ##
