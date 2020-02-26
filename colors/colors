@@ -1,0 +1,20 @@
+Color       Hex         RGB             term color
+
+base03      #200036     32, 0, 54       black
+base02      #2b0742     43, 7, 66       brightBlack
+base01      #6a5875     106, 88, 117    brightGreen
+base00      #766482     118, 100, 130   brightYellow
+base0       #8f8396     143, 131, 150   brightBlue
+base1       #9b92a1     155, 146, 161   brightCyan
+base2       #e3d3ed     227, 211, 237   white
+base3       #f2e3fc     242, 227, 252   brightWhite
+red         #dc322f     220, 50, 47     red
+orange      #cb4b16     203, 75, 22     brightRed
+green       #859900     133, 153, 0     green
+yellow      #b58900     181, 137, 0     yellow
+blue        #268bd2     38, 139, 210    blue
+magenta     #d33682     211, 54, 130    magenta
+violet      #6c71c4     108, 113, 196   brightMagenta
+cyan        #2aa198     42, 161, 152    cyan
+
+
