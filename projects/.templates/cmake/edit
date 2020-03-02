@@ -1,0 +1,5 @@
+#!/usr/bin/env zsh
+
+PROJECTS_DIR=${PROJECTS_DIR:-"$HOME/data/projects"}
+
+cd $PROJECTS_DIR/$PROJECT/repo/src; nvim
