@@ -223,15 +223,6 @@ bindsym $mod+z scratchpad show
 ## Workspace Settings ##
 #======================#
 
-workspace $wMain output $dCenter
-workspace $wAlt output $dCenter
-workspace $wRef output $dLeft
-workspace $wChats output $dRight
-workspace $wEmacs output $dCenter
-workspace $wWatch output $dRight
-workspace $wPlay output $dCenter
-workspace $wSpotify output $dRight
-
 assign [class="^Emacs"] $wEmacs
 assign [class="^TelegramDesktop"] $wChats
 assign [class="^discord"] $wChats
