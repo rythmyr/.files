@@ -245,8 +245,8 @@ workspace_auto_back_and_forth yes
 for_window [class=".*"] title_format "%title -|- %class -|- %instance"
 for_window [title="^SCREENSHOT$" class="^feh$"] floating enable, move absolute position 0 0
 
-gaps inner 10
-gaps outer 15
+gaps inner 20
+gaps outer 5
 
 default_border pixel 4
 # class                 border  backgr. text    indicator child_border
