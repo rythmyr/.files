@@ -6,10 +6,10 @@ export RYTH_ZSH_NOFETCH="1"
 
 local function do_work() {
     tmux selectp -t 0
-    tmux send-keys "cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;run-start" C-m
+    tmux send-keys "pj $PROJECT;run-start" C-m
 
     tmux selectp -t 1
-    tmux send-keys "th;cd $PROJECT_DIR;source sourceme;cd $PROJECT_DIR/repo;edit" C-m
+    tmux send-keys "th; pj $PROJECT;edit" C-m
 }
 
 if [[ -z $PROJECT_DIR ]]; then
