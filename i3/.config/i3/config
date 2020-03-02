@@ -11,10 +11,6 @@
 
 set $mod Mod4
 
-set $dLeft DP-2
-set $dCenter DP-4
-set $dRight HDMI-0
-
 # Whatever I happen to be working on at the moment
 set $wMain "main"
 # If I happen to need a second workspace for whatever I'm working on
