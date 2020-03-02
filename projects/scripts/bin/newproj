@@ -23,18 +23,6 @@ cd "$HOME/data/projects/$1"
 
 cp "$HOME/.templates/$2"/* .
 
-
-
-echo "#!/usr/bin/env zsh
-
-export PATH_NOPROJ=$(echo -n '${PATH_NOPROJ:-$PATH}')
-
-export PATH=$PWD:$(echo -n '$PATH_NOPROJ')
-export PROJECT=$1
-export PROJECT_DIR=$PWD" > sourceme
-
-chmod +x sourceme
-
 [[ -x setup ]] && ./setup
 
 cd repo
