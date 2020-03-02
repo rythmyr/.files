@@ -21,7 +21,7 @@ mkdir -p "$HOME/data/projects/$1"
 
 cd "$HOME/data/projects/$1"
 
-cp "$HOME/.templates/$2"/* .
+cp -r "$HOME/.templates/$2"/* .
 
 [[ -x setup ]] && ./setup
 
