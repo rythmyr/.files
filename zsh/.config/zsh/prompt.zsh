@@ -45,7 +45,7 @@ local function prompt_dir() {
     projectDir=${${${realPwd%$relativePath}%/}/$HOME/\~}
 
     if [[ -z $relativePath ]]; then
-        echo -n "%F{5}$projectDir%f" && exit
+        echo -n "%F{5}$projectDir%f"
     else
         #only executes if in a git controlled directory
 
@@ -55,6 +55,7 @@ local function prompt_dir() {
             echo -n "%F{4}/%f%B%F{5}$relativePath%f%b"
         fi
     fi
+    echo -n "%F{5}/%f"
 }
 
 local function prompt_branch() {
