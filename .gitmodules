@@ -14,3 +14,6 @@
 	path = git/.config/git
 	url = git@github.com:rythmyr/.files-git
 	branch = master
+[submodule "alacritty/.config/alacritty"]
+	path = alacritty/.config/alacritty
+	url = git@github.com:rythmyr/.files-alacritty
