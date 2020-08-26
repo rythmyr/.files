@@ -1,7 +1,9 @@
-alias ls='ls --color=auto --group-directories-first'
-alias ll='ls --color=auto --group-directories-first -lh'
-alias la='ls --color=auto --group-directories-first -A'
-alias lla='ls --color=auto --group-directories-first -lhA'
+local LS=$([[ $ISMAC ]] && echo "g")'ls'
+
+alias ls="$LS --color=auto --group-directories-first"
+alias ll="$LS --color=auto --group-directories-first -lh"
+alias la="$LS --color=auto --group-directories-first -A"
+alias lla="$LS --color=auto --group-directories-first -lhA"
 alias bell='echo -e "\a"'
 
 alias ce="$EDITOR $ZDOTDIR/.zshrc"
