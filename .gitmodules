@@ -5,15 +5,16 @@
 [submodule "emacs/.emacs.d"]
 	path = emacs/.emacs.d
 	url = git@github.com:rythmyr/.files-emacs
-	branch = master
+	branch = main
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = git@github.com:rythmyr/.files-nvim
-	branch = master
+	branch = main
 [submodule "git/.config/git"]
 	path = git/.config/git
 	url = git@github.com:rythmyr/.files-git
-	branch = master
+	branch = main
 [submodule "alacritty/.config/alacritty"]
 	path = alacritty/.config/alacritty
 	url = git@github.com:rythmyr/.files-alacritty
+	branch = main
