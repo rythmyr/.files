@@ -1,0 +1,48 @@
+#!/usr/bin/env zsh
+
+# wrapper around powershell's Start-Process command
+# Useful for starting windows applications that aren't on the PATH for some reason (like chrome)
+# Includes passing in the arguments list, which the syntax for in powershell is really weird
+
+
+#local exe=$1
+#shift
+#
+#
+#local args=""
+#while [[ '0' != "$#" ]]; do
+#    args=$args\`\"$1\`\"" "
+#    shift
+#done
+#
+#if [[ -n "$args" ]]; then
+#    args=\"$args\"
+#fi
+#
+#echo "Start-Process $exe $args"
+#powershell "Start-Process $exe $args"
+
+
+
+
+local exe=$1
+shift
+
+
+local args=""
+while [[ '0' != "$#" ]]; do
+    local escaped=${args:gs/\"/\"\"/}
+    escaped=${args:gs/\'/\'\'/}
+    args=$args\"$1\"" "
+    shift
+done
+
+if [[ -n "$args" ]]; then
+    args=\'$args\'
+fi
+
+local fullCommand="powershell.exe \"Start-Process '$exe' $args\""
+
+echo $fullCommand
+echo "Start-Process '$exe' $args"
+powershell.exe "Start-Process '$exe' $args"
