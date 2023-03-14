@@ -4,6 +4,8 @@
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. /usr/local/opt/nvm/nvm.sh
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. /usr/local/opt/nvm/etc/bash_completion.d/nvm
 
+[ -s "$NVM_DIR/nvm.sh" ] && \. $NVM_DIR/nvm.sh
+
 if [[ $NODE_USE_VERSION ]] && command -v nvm >/dev/null 2>&1; then
     nvm use $NODE_USE_VERSION >/dev/null
 fi
